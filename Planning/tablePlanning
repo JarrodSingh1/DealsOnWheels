@@ -1,0 +1,23 @@
+View UserInfo (UserID, FirstName, LastName, Email Address, PhoneNumber, StreetAddress, City, Country, State, ZipCode)
+UserCredentials (UserID, Email Address, Password)
+UserPersonalDetails (UserID, FirstName, LastName, IDNumber )
+UserAddressDetails (UserID, StreetAddress, City, Country, State, ZipCode)
+UserContactDetails (UserID, PhoneNumber)
+UserPaymentDetails (UserID, AccountNumber)
+
+
+View VehicleInfo (VehicleID, ManufacturerID, ManufacturerName, ModelName, ModelYear, Price, FuelType, Transmission, Displacement, Power, Torque, Weight, BodyType, AdditionalInfo)
+VehicleManufacturer (VehicleID, ManufacturerID)
+Manufacturer (ManufacturerID, ManufacturerName)
+ManufacturerModelInfo (ManufacturerID, ModelName)
+VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission)
+VehicleBodyType (BodyTypeID, BodyType)
+
+
+View Transactions (TransactionID, VehicleID, DateSold, DateAdded, Price, OwnerUserId
+View Transaction Info (TransactionID, VehicleID, ManufacturerName, ModelName, ModelYear, Displacement, FuelType, Power, Torque, Weight, BodyType, AdditionalInfo, Price, Transmission, DateSold, DateAdded, UserID, FirstName, LastName, UserAccountNumber)
+SoldVehicles(VehicleID, DateSold, OwnerUserId)
+AvaliableVehicles(VehicleID, DateAdded)
+VehicleTransaction (TransactionID, VehicleID)
+
+

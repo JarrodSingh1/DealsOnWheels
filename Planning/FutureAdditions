@@ -1,0 +1,11 @@
+Things to add in future:
+Better security - Encryption, JWT Tokens, API Keys, Salting passwords
+Change/Reset password functionality.
+DB Normalisation.
+Pre-owned Vehicles.
+Discounts, Promos
+Delivery Info,
+More Payment Options
+DB Validation (Regex Rules, Min/max lengths)
+Add dialing code to Phone number field
+support for differnt currencies and languages
