@@ -1,153 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using DealsOnWheelsAPI.Data;
+﻿using DealsOnWheelsAPI.Data.EfCore;
 using DealsOnWheelsAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DealsOnWheelsAPI.Controllers
 {
-    public class UsersController : Controller
+    [Route("api/Users")]
+    [ApiController]
+    public class UsersController : MyMDBController<User, EfCoreUserRepository>
     {
-        private readonly DealsOnWheelsAPIContext _context;
-
-        public UsersController(DealsOnWheelsAPIContext context)
+        private readonly EfCoreUserRepository _thisRepository;
+        public UsersController(EfCoreUserRepository repository) : base(repository)
         {
-            _context = context;
+            _thisRepository = repository;
         }
 
-        // GET: Users
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.User.ToListAsync());
-        }
-
-        // GET: Users/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
-        // GET: Users/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Users/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: api/Users/Login
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,EmailAddress,Password")] User user)
+        [Route("api/Users/Login")]
+        public async Task<ActionResult<User>> Login(User user)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
+           var validLogin = await _thisRepository.Login(user);
+           if(validLogin)
+           {
+                return Ok();  
+           }
+           else
+           {
+                return BadRequest();
+           }
         }
 
-        // GET: Users/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // POST: api/Users/UserInfo/5
+        [HttpGet]
+        [Route("api/Users/UserInfo/{userId}")]
+        public async Task<UserInfo?> UserInfo(int userId)
         {
-            if (id == null)
+            var userInfo = await _thisRepository.GetUserInfo(userId);
+            if (userInfo != null)
             {
-                return NotFound();
+                return userInfo;
             }
-
-            var user = await _context.User.FindAsync(id);
-            if (user == null)
+            else
             {
-                return NotFound();
+                return null;
             }
-            return View(user);
-        }
-
-        // POST: Users/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,EmailAddress,Password")] User user)
-        {
-            if (id != user.UserId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UserExists(user.UserId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
-        }
-
-        // GET: Users/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
-        // POST: Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var user = await _context.User.FindAsync(id);
-            _context.User.Remove(user);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool UserExists(int id)
-        {
-            return _context.User.Any(e => e.UserId == id);
         }
     }
 }

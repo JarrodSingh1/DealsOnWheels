@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DealsOnWheelsAPI.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace DealsOnWheelsAPI.Models
 {
     public class VehicleImage
     {
         [Required]
+        [Key]
         public int VehicleId { get; set; }
         
         [StringLength(1000)]

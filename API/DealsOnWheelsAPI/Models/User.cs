@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DealsOnWheelsAPI.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace DealsOnWheelsAPI.Models
 {

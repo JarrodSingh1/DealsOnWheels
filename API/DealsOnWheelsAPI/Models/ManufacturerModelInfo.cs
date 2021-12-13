@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DealsOnWheelsAPI.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace DealsOnWheelsAPI.Models
 {
     public class ManufacturerModelInfo
     {
         [Required]
+        [Key]
         public int ManufacturerId { get; set; }
 
         [Required]

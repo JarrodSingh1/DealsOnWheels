@@ -1,13 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DealsOnWheelsAPI.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace DealsOnWheelsAPI.Models
 {
     public class AvailableVehicles
     {
         [Required]
+        [Key]
         public int VehicleId { get; set; }
 
         [Required]
-        public DateOnly DateAdded { get; set; }
+        public DateTime DateAdded { get; set; }
     }
 }

@@ -1,10 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using DealsOnWheelsAPI.Data;
+﻿using DealsOnWheelsAPI.Data.EfCore;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DealsOnWheelsAPIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DealsOnWheelsAPIContext")));
+
+builder.Services.AddScoped<EfCoreUserRepository>();
+builder.Services.AddScoped<EfCoreVehicleRepository>();
+builder.Services.AddScoped<EfCoreTransactionRepository>();
 
 // Add services to the container.
 

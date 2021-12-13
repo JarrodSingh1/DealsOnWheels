@@ -1,18 +1,19 @@
 ﻿using DealsOnWheelsAPI.Data;
-using System.ComponentModel.DataAnnotations;
 
 namespace DealsOnWheelsAPI.Models
 {
-    public class SoldVehicles
+    public class Transactions
     {
-        [Required]
-        [Key]
+        public int TransactionId { get; set; }
+
         public int VehicleId { get; set; }
 
-        [Required]
         public DateTime DateSold { get; set; }
 
-        [Required]
+        public DateTime DateAdded { get; set; }
+
+        public double Price { get; set; }
+
         public int UserId { get; set; }
     }
 }

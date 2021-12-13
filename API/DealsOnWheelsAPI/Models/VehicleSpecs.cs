@@ -1,29 +1,31 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DealsOnWheelsAPI.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace DealsOnWheelsAPI.Models
 {
     public class VehicleSpecs
     {
         [Required]
+        [Key]
         public int VehicleId { get; set; }
 
         [Required]
         public int Year { get; set; }
         
         [Required]
-        public float Displacement { get; set; }
+        public double Displacement { get; set; }
 
         [Required]
-        public float FuelType { get; set; }
+        public String FuelType { get; set; }
 
         [Required]
-        public float Power { get; set; }
+        public double Power { get; set; }
 
         [Required]
-        public float Torque { get; set; }
+        public double Torque { get; set; }
 
         [Required]
-        public float Weight { get; set; }
+        public double Weight { get; set; }
 
         [Required]
         public int BodyTypeId { get; set; }
@@ -33,7 +35,7 @@ namespace DealsOnWheelsAPI.Models
         public String AdditionalInfo { get; set; }
 
         [Required]
-        public float Price { get; set; }
+        public double Price { get; set; }
 
         [Required]
         [StringLength(50)]
