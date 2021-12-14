@@ -1,5 +1,6 @@
 ﻿using DealsOnWheelsAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace DealsOnWheelsAPI.Data.EfCore
 {
@@ -144,6 +145,11 @@ namespace DealsOnWheelsAPI.Data.EfCore
             return await _context.tb_Manufacturer.ToListAsync();
         }
 
+        public async Task<List<VehicleBodyType>> GetAllVehicleBodyTypes()
+        {
+            return await _context.tb_VehicleBodyType.ToListAsync();
+        }
+
         public async Task<List<Model>> GetAllModels()
         {
             return await _context.tb_Model.ToListAsync();
@@ -152,6 +158,221 @@ namespace DealsOnWheelsAPI.Data.EfCore
         public async Task<List<VehicleSpecs>> GetAllVehicles()
         {
             return await _context.tb_VehicleSpecs.ToListAsync();
+        }
+
+        public async Task<Manufacturer?> AddManufacturer(String name)
+        {
+            if(name != null)
+            {
+                Manufacturer manufacturer = new Manufacturer();
+                manufacturer.ManufacturerName = name;
+
+                try
+                {
+                    _context.tb_Manufacturer.Add(manufacturer);
+                    await _context.SaveChangesAsync();
+                    return manufacturer;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Error adding new manufacturer to tb_Manufacturer: " + ex.Message);
+                }
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<Model?> AddModel(String name)
+        {
+            if (name != null)
+            {
+                Model model = new Model();
+                model.ModelName = name;
+
+                try
+                {
+                    _context.tb_Model.Add(model);
+                    await _context.SaveChangesAsync();
+                    return model;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Error adding new model to tb_Model: " + ex.Message);
+                }
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<VehicleBodyType?> AddBodyType(String name)
+        {
+            if (name != null)
+            {
+                VehicleBodyType vehicleBodyType = new VehicleBodyType();
+                vehicleBodyType.BodyType = name;
+
+                try
+                {
+                    _context.tb_VehicleBodyType.Add(vehicleBodyType);
+                    await _context.SaveChangesAsync();
+                    return vehicleBodyType;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Error adding new body type to tb_VehicleBodyType: " + ex.Message);
+                }
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<int?> AddNewVehicle(NewVehicle newVehicle)
+        {
+            var valid = true;
+            var vehicleID = 0;
+            try
+            {
+                if (newVehicle != null)
+                {
+                    VehicleSpecs vehicle = new VehicleSpecs();
+                    vehicle.Year = newVehicle.Year;
+                    vehicle.Displacement = newVehicle.Displacement;
+                    vehicle.FuelType = newVehicle.FuelType;
+                    vehicle.Power = newVehicle.Power;
+                    vehicle.Torque = newVehicle.Torque;
+                    vehicle.Weight = newVehicle.Weight;
+                    vehicle.BodyTypeId = newVehicle.BodyTypeId;
+                    vehicle.AdditionalInfo = newVehicle.AdditionalInfo;
+                    vehicle.Price = newVehicle.Price;
+                    vehicle.Transmission = newVehicle.Transmission;
+
+                    try
+                    {
+                        _context.tb_VehicleSpecs.Add(vehicle);
+                        await _context.SaveChangesAsync();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("Error adding new vehicle to tb_VehicleSpecs: " + ex.Message);
+                        valid = false;
+                    }
+
+                    try
+                    {
+                        var searchVehicle = await _context.tb_VehicleSpecs
+                 .FirstOrDefaultAsync(m => m.Year == newVehicle.Year && m.Displacement == newVehicle.Displacement && m.FuelType == newVehicle.FuelType && m.Power == newVehicle.Power && m.Torque == newVehicle.Torque && m.Weight == newVehicle.Weight && m.BodyTypeId == newVehicle.BodyTypeId && m.AdditionalInfo == newVehicle.AdditionalInfo && m.Price == newVehicle.Price && m.Transmission == newVehicle.Transmission);
+
+                        if (searchVehicle != null)
+                        {
+                            vehicleID = searchVehicle.VehicleId;
+                        }
+                        else
+                        {
+                            valid = false;
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("Error finding newly added vehicle from tb_VehicleSpecs: " + ex.Message);
+                        valid = false;
+                    }
+
+                    if (valid)
+                    {
+                        VehicleManufacturer vehicleManufacturer = new VehicleManufacturer();
+                        vehicleManufacturer.VehicleId = vehicleID;
+                        vehicleManufacturer.ManufacturerId = newVehicle.ManufacturerId;
+
+                        try
+                        {
+                            _context.tb_VehicleManufacturer.Add(vehicleManufacturer);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine("Error adding new manufacturer to tb_VehicleManufacturer: " + ex.Message);
+                            valid = false;
+                        }
+
+                    }
+
+                    if (valid)
+                    {
+                        if(newVehicle.ImageURL != null)
+                        {
+                            VehicleImage vehicleImage = new VehicleImage();
+                            vehicleImage.VehicleId = vehicleID;
+                            vehicleImage.ImageURL = newVehicle.ImageURL;
+
+                            try
+                            {
+                                _context.tb_VehicleImage.Add(vehicleImage);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine("Error adding new vehicleImage to tb_VehicleImage: " + ex.Message);
+                                valid = false;
+                            }
+                        }
+                    }
+
+                    if (valid)
+                    {
+                        VehicleModel vehicleModel = new VehicleModel();
+                        vehicleModel.VehicleId = vehicleID;
+                        vehicleModel.ModelId = newVehicle.ModelId;
+
+                        try
+                        {
+                            _context.tb_VehicleModel.Add(vehicleModel);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine("Error adding new vehicleModel to tb_VehicleModel: " + ex.Message);
+                            valid = false;
+                        }
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+
+                if (valid)
+                {
+                    await _context.SaveChangesAsync();
+
+
+                    if (vehicleID > 0)
+                    {
+                        return vehicleID;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error adding new vehicle: " + ex.Message);
+                return null;
+            }
         }
     }
 }

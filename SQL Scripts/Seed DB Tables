@@ -1,167 +1,167 @@
 --Seed DB
 
-INSERT INTO tb_UserCredentials (UserID, EmailAddress, Password) Values (0,'admin@email.com','AdminPassword1');
-INSERT INTO tb_UserCredentials (UserID, EmailAddress, Password) Values (1,'testuser@email.com','TestUserPassword1');
+INSERT INTO tb_UserCredentials (EmailAddress, Password) Values ('admin@email.com','AdminPassword1');
+INSERT INTO tb_UserCredentials (EmailAddress, Password) Values ('testuser@email.com','TestUserPassword1');
 
-INSERT INTO tb_UserPersonalDetails (UserID, FirstName, LastName, IDNumber) Values (0,'Super','User', '1234');
-INSERT INTO tb_UserPersonalDetails (UserID, FirstName, LastName, IDNumber) Values (1,'Test','User', '2345');
+INSERT INTO tb_UserPersonalDetails (UserID, FirstName, LastName, IDNumber) Values (1,'Super','User', '1234');
+INSERT INTO tb_UserPersonalDetails (UserID, FirstName, LastName, IDNumber) Values (2,'Test','User', '2345');
 
-INSERT INTO tb_UserContactDetails (UserID, PhoneNumber) Values (0,'0000000000');
-INSERT INTO tb_UserContactDetails (UserID, PhoneNumber) Values (1,'1111111111');
+INSERT INTO tb_UserContactDetails (UserID, PhoneNumber) Values (1,'0000000000');
+INSERT INTO tb_UserContactDetails (UserID, PhoneNumber) Values (2,'1111111111');
 
-INSERT INTO tb_UserPaymentDetails (UserID, AccountNumber) Values (0,'12345678');
-INSERT INTO tb_UserPaymentDetails (UserID, AccountNumber) Values (1,'23456789');
+INSERT INTO tb_UserPaymentDetails (UserID, AccountNumber) Values (1,'12345678');
+INSERT INTO tb_UserPaymentDetails (UserID, AccountNumber) Values (2,'23456789');
 
-INSERT INTO tb_UserAddressDetails (UserID, StreetAddress, City, Country, State, ZipCode) Values (0,'1 Pine Avenue', 'Liepzig', 'Germany', 'Brussels', '1234');
-INSERT INTO tb_UserAddressDetails (UserID, StreetAddress, City, Country, State, ZipCode) Values (1,'2 Tree Street', 'Baja-California', 'Mexico', 'MexicoCity', '2345');
-
-
-
-INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (1,'Mercedes-Benz');
-INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (2,'BMW');
-INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (3,'Audi');
-INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (4,'Lexus');
-INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (5,'Lamborghini');
-INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (6,'Ferrari');
-INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (7,'Porsche');
-INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (8,'AstonMartin');
-INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (9,'Nissan');
-
-
-INSERT INTO tb_Model (ModelID, ModelName) Values (1,'A class');
-INSERT INTO tb_Model (ModelID, ModelName) Values (2,'C class');
-INSERT INTO tb_Model (ModelID, ModelName) Values (3,'E class');
-INSERT INTO tb_Model (ModelID, ModelName) Values (4,'S class');
-INSERT INTO tb_Model (ModelID, ModelName) Values (5,'X class');
-INSERT INTO tb_Model (ModelID, ModelName) Values (6,'G class');
-INSERT INTO tb_Model (ModelID, ModelName) Values (7,'1 series');
-INSERT INTO tb_Model (ModelID, ModelName) Values (8,'2 series');
-INSERT INTO tb_Model (ModelID, ModelName) Values (9,'3 series');
-INSERT INTO tb_Model (ModelID, ModelName) Values (10,'4 series');
-INSERT INTO tb_Model (ModelID, ModelName) Values (11,'5 series');
-INSERT INTO tb_Model (ModelID, ModelName) Values (12,'X series');
-INSERT INTO tb_Model (ModelID, ModelName) Values (13,'A3');
-INSERT INTO tb_Model (ModelID, ModelName) Values (14,'A4');
-INSERT INTO tb_Model (ModelID, ModelName) Values (15,'A5');
-INSERT INTO tb_Model (ModelID, ModelName) Values (16,'Q5');
-INSERT INTO tb_Model (ModelID, ModelName) Values (17,'R8');
-INSERT INTO tb_Model (ModelID, ModelName) Values (18,'RX');
-INSERT INTO tb_Model (ModelID, ModelName) Values (19,'LFA');
-INSERT INTO tb_Model (ModelID, ModelName) Values (20,'Gallardo');
-INSERT INTO tb_Model (ModelID, ModelName) Values (21,'Huracan');
-INSERT INTO tb_Model (ModelID, ModelName) Values (22,'Aventador');
-INSERT INTO tb_Model (ModelID, ModelName) Values (23,'458 Pista');
-INSERT INTO tb_Model (ModelID, ModelName) Values (24,'Roma');
-INSERT INTO tb_Model (ModelID, ModelName) Values (25,'SF90');
-INSERT INTO tb_Model (ModelID, ModelName) Values (26,'911');
-INSERT INTO tb_Model (ModelID, ModelName) Values (27,'Cayman');
-INSERT INTO tb_Model (ModelID, ModelName) Values (28,'Macan');
-INSERT INTO tb_Model (ModelID, ModelName) Values (29,'Taycan');
-INSERT INTO tb_Model (ModelID, ModelName) Values (30,'Vantage');
-INSERT INTO tb_Model (ModelID, ModelName) Values (31,'Vanquish');
-INSERT INTO tb_Model (ModelID, ModelName) Values (32,'Vulcan');
-INSERT INTO tb_Model (ModelID, ModelName) Values (33,'GTR');
-INSERT INTO tb_Model (ModelID, ModelName) Values (34,'370z');
-INSERT INTO tb_Model (ModelID, ModelName) Values (35,'Navara');
-
-
-INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (1,'Coupe');
-INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (2,'Sedan');
-INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (3,'Hatchback');
-INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (4,'Truck/SUV');
-INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (5,'Hypercar');
+INSERT INTO tb_UserAddressDetails (UserID, StreetAddress, City, Country, State, ZipCode) Values (1,'1 Pine Avenue', 'Liepzig', 'Germany', 'Brussels', '1234');
+INSERT INTO tb_UserAddressDetails (UserID, StreetAddress, City, Country, State, ZipCode) Values (2,'2 Tree Street', 'Baja-California', 'Mexico', 'MexicoCity', '2345');
 
 
 
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (1, 2018, 2.0, 'Petrol', 295, 550, 1670, 3, 'A45 AMG', 725000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2, 2016, 1.8, 'Diesel', 100, 220, 1560, 3, 'A200d', 315000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (3, 2019, 1.8, 'Diesel', 120, 265, 1790, 2, 'C200d', 625000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (4, 2016, 3.0, 'Petrol', 290, 500, 1800, 2, 'C43 AMG', 990000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (5, 2020, 4.0, 'Petrol', 335, 600, 1870, 1, 'C63 AMG', 1945000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (6, 2021, 4.0, 'Petrol', 340, 600, 1900, 2, 'C63 AMG', 2225000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (7, 2018, 2.0, 'Diesel', 259, 500, 2008, 2, 'E300d', 812000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (8, 2017, 6.0, 'Petrol', 630, 600, 2500, 1, 'S65 AMG', 4560000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (9, 2020, 2.0, 'Petrol', 255, 450, 1990, 4, 'X250d', 885000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (10, 2016, 4.0, 'Petrol', 350, 550, 2750, 4, 'G500', 2121000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (11, 2021, 4.0, 'Petrol', 400, 650, 2870, 4, 'G63 AMG', 3625000, 'Automatic');
+INSERT INTO tb_Manufacturer (ManufacturerName) Values ('Mercedes-Benz');
+INSERT INTO tb_Manufacturer (ManufacturerName) Values ('BMW');
+INSERT INTO tb_Manufacturer (ManufacturerName) Values ('Audi');
+INSERT INTO tb_Manufacturer (ManufacturerName) Values ('Lexus');
+INSERT INTO tb_Manufacturer (ManufacturerName) Values ('Lamborghini');
+INSERT INTO tb_Manufacturer (ManufacturerName) Values ('Ferrari');
+INSERT INTO tb_Manufacturer (ManufacturerName) Values ('Porsche');
+INSERT INTO tb_Manufacturer (ManufacturerName) Values ('AstonMartin');
+INSERT INTO tb_Manufacturer (ManufacturerName) Values ('Nissan');
 
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (12, 2016, 2.0, 'Diesel', 110, 450, 1650, 3, '120d', 365000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (13, 2015, 3.0, 'Petrol', 275, 500, 1640, 3, '140i', 775000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (14, 2017, 2.0, 'Diesel', 115, 500, 1610, 1, '220d', 655000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (15, 2016, 3.0, 'Petrol', 285, 525, 1650, 1, 'M235i', 765000, 'Manual');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (16, 2015, 2.0, 'Diesel', 125, 500, 1700, 2, '320d', 534000, 'Manual');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (17, 2019, 2.0, 'Petrol', 129, 300, 1700, 2, '320i', 826000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (18, 2020, 2.0, 'Petrol', 185, 450, 1725, 2, '330i', 978000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (19, 2016, 3.0, 'Petrol', 315, 550, 1875, 1, 'M4', 830000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (20, 2019, 4.4, 'Petrol', 300, 550, 2000, 2, 'M550i', 1830000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (21, 2020, 4.4, 'Petrol', 350, 600, 2005, 4, 'M5', 2725000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (22, 2021, 4.4, 'Diesel', 385, 700, 2320, 4, 'X5 M50d', 2725000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (23, 2018, 3.0, 'Petrol', 260, 650, 2140, 4, 'X3 3.0d', 1695000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (24, 2018, 3.0, 'Diesel', 290, 680, 2260, 4, 'X6 3.0d', 1895000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (25, 2016, 4.4, 'Petrol', 385, 700, 2500, 4, 'X6M', 1822000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (26, 2020, 4.4, 'Petrol', 420, 730, 2670, 4, 'X 6M', 2999000, 'Automatic');
 
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (27, 2018, 1.0, 'Diesel', 70, 120, 1420, 3, 'A3 1.0d', 620000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (28, 2014, 1.4, 'Petrol', 100, 150, 1400, 3, 'A3 1.4 TFSI', 316000, 'Manual');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (29, 2016, 3.0, 'Petrol', 275, 450, 2110, 2, 'S4', 925000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (30, 2019, 2.9, 'Petrol', 315, 500, 2250, 2, 'RS4', 2225000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (31, 2015, 3.0, 'Petrol', 295, 500, 1920, 1, 'S5', 600000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (32, 2017, 3.0, 'Diesel', 280, 600, 2570, 4, 'Q5 3.0d', 1125000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (33, 2016, 3.0, 'Diesel', 300, 650, 2770, 4, 'SQ5', 1715000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (34, 2016, 5.2, 'Petrol', 350, 480, 1820, 5, 'R8 V10', 1985000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (35, 2020, 5.2, 'Petrol', 380, 500, 1865, 5, 'R8 V10 plus', 2855000, 'Automatic');
+INSERT INTO tb_Model (ModelName) Values ('A class');
+INSERT INTO tb_Model (ModelName) Values ('C class');
+INSERT INTO tb_Model (ModelName) Values ('E class');
+INSERT INTO tb_Model (ModelName) Values ('S class');
+INSERT INTO tb_Model (ModelName) Values ('X class');
+INSERT INTO tb_Model (ModelName) Values ('G class');
+INSERT INTO tb_Model (ModelName) Values ('1 series');
+INSERT INTO tb_Model (ModelName) Values ('2 series');
+INSERT INTO tb_Model (ModelName) Values ('3 series');
+INSERT INTO tb_Model (ModelName) Values ('4 series');
+INSERT INTO tb_Model (ModelName) Values ('5 series');
+INSERT INTO tb_Model (ModelName) Values ('X series');
+INSERT INTO tb_Model (ModelName) Values ('A3');
+INSERT INTO tb_Model (ModelName) Values ('A4');
+INSERT INTO tb_Model (ModelName) Values ('A5');
+INSERT INTO tb_Model (ModelName) Values ('Q5');
+INSERT INTO tb_Model (ModelName) Values ('R8');
+INSERT INTO tb_Model (ModelName) Values ('RX');
+INSERT INTO tb_Model (ModelName) Values ('LFA');
+INSERT INTO tb_Model (ModelName) Values ('Gallardo');
+INSERT INTO tb_Model (ModelName) Values ('Huracan');
+INSERT INTO tb_Model (ModelName) Values ('Aventador');
+INSERT INTO tb_Model (ModelName) Values ('458 Pista');
+INSERT INTO tb_Model (ModelName) Values ('Roma');
+INSERT INTO tb_Model (ModelName) Values ('SF90');
+INSERT INTO tb_Model (ModelName) Values ('911');
+INSERT INTO tb_Model (ModelName) Values ('Cayman');
+INSERT INTO tb_Model (ModelName) Values ('Macan');
+INSERT INTO tb_Model (ModelName) Values ('Taycan');
+INSERT INTO tb_Model (ModelName) Values ('Vantage');
+INSERT INTO tb_Model (ModelName) Values ('Vanquish');
+INSERT INTO tb_Model (ModelName) Values ('Vulcan');
+INSERT INTO tb_Model (ModelName) Values ('GTR');
+INSERT INTO tb_Model (ModelName) Values ('370z');
+INSERT INTO tb_Model (ModelName) Values ('Navara');
 
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (36, 2016, 4.0, 'Petrol', 350, 600, 2620, 4, 'RX F', 2025000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (37, 2017, 2.0, 'Petrol', 270, 520, 2370, 4, 'RX 350', 1325000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (38, 2018, 4.0, 'Petrol', 380, 620, 2730, 4, 'RX F', 2825000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (39, 2011, 4.8, 'Petrol', 412, 550, 1480, 5, 'LFA', 3145000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (40, 2012, 4.8, 'Petrol', 412, 550, 1480, 5, 'LFA', 3585000, 'Automatic');
 
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (41, 2010, 5.2, 'Petrol', 400, 400, 1570, 5, 'Gallardo', 2325000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (42, 2012, 5.2, 'Petrol', 400, 400, 1570, 5, 'Gallardo', 2125000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (43, 2016, 5.2, 'Petrol', 435, 550, 1510, 5, 'Huracan', 3715000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (44, 2017, 5.2, 'Petrol', 435, 550, 1510, 5, 'Huracan', 3845000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (45, 2018, 5.2, 'Petrol', 435, 550, 1510, 5, 'Huracan', 4665000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (46, 2019, 6.5, 'Petrol', 580, 670, 1680, 5, 'Aventador', 8725000, 'Automatic');
+INSERT INTO tb_VehicleBodyType (BodyType) Values ('Coupe');
+INSERT INTO tb_VehicleBodyType (BodyType) Values ('Sedan');
+INSERT INTO tb_VehicleBodyType (BodyType) Values ('Hatchback');
+INSERT INTO tb_VehicleBodyType (BodyType) Values ('Truck/SUV');
+INSERT INTO tb_VehicleBodyType (BodyType) Values ('Hypercar');
 
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (47, 2019, 3.9, 'Petrol', 468, 680, 1580, 5, 'Pista', 7825000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (48, 2019, 3.9, 'Petrol', 468, 680, 1580, 5, 'Pista', 7984000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (49, 2020, 3.9, 'Petrol', 468, 680, 1580, 5, 'Pista', 8725000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (50, 2020, 3.8, 'Petrol', 388, 600, 1520, 1, 'Roma', 3725000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (51, 2021, 3.8, 'Petrol', 388, 600, 1520, 1, 'Roma', 4225000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (52, 2020, 4.0, 'Hybrid', 850, 980, 1840, 5, 'SF90', 12788000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (53, 2021, 4.0, 'Hybrid', 850, 980, 1840, 5, 'SF90', 13725000, 'Automatic');
 
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (54, 2015, 3.0, 'Petrol', 295, 500, 1680, 1, '911 Carrera S', 895000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (55, 2016, 3.0, 'Petrol', 300, 520, 1720, 1, '911 Carrera 4s', 985000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (56, 2017, 3.8, 'Petrol', 385, 750, 1870, 1, '911 turbo S', 3725000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (57, 2018, 4.0, 'Petrol', 380, 480, 1630, 1, '911 GT3 RS', 4222000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (58, 2016, 2.0, 'Petrol', 220, 450, 1620, 1, 'Cayman S', 755000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (59, 2016, 2.0, 'Petrol', 280, 520, 1610, 1, 'Cayman GTS', 798000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (60, 2017, 2.0, 'Petrol', 210, 485, 1620, 1, 'Cayman', 825000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (61, 2018, 4.0, 'Petrol', 300, 490, 1600, 1, 'Cayman GT4', 2835000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (62, 2016, 3.0, 'Petrol', 300, 500, 2450, 4, 'Macan S', 2335000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (63, 2017, 3.0, 'Petrol', 320, 550, 2550, 4, 'Macan GTS', 2425000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (64, 2020, 0.0, 'Electric', 390, 850, 2670, 1, 'Taycan S', 4500000, 'Automatic');
 
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (65, 2018, 4.0, 'Petrol', 350, 550, 1790, 1, 'Vantage', 3725000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (66, 2018, 4.0, 'Petrol', 350, 550, 1790, 1, 'Vantage', 3825000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (67, 2019, 4.0, 'Petrol', 350, 550, 1790, 1, 'Vantage', 4225000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (68, 2019, 4.0, 'Petrol', 350, 550, 1790, 1, 'Vantage', 4525000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (69, 2016, 5.9, 'Petrol', 460, 550, 2100, 1, 'Vanquish', 4725000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (70, 2017, 5.9, 'Petrol', 460, 550, 2100, 1, 'Vanquish', 5225000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (71, 2018, 5.9, 'Petrol', 460, 550, 2100, 1, 'Vanquish', 5525000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (72, 2019, 5.9, 'Petrol', 460, 550, 2100, 1, 'Vanquish', 5755000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (73, 2018, 6.0, 'Petrol', 600, 820, 1690, 5, 'Vulcan', 9988000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 2.0, 'Petrol', 295, 550, 1670, 3, 'A45 AMG', 725000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 1.8, 'Diesel', 100, 220, 1560, 3, 'A200d', 315000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 1.8, 'Diesel', 120, 265, 1790, 2, 'C200d', 625000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 3.0, 'Petrol', 290, 500, 1800, 2, 'C43 AMG', 990000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 4.0, 'Petrol', 335, 600, 1870, 1, 'C63 AMG', 1945000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2021, 4.0, 'Petrol', 340, 600, 1900, 2, 'C63 AMG', 2225000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 2.0, 'Diesel', 259, 500, 2008, 2, 'E300d', 812000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 6.0, 'Petrol', 630, 600, 2500, 1, 'S65 AMG', 4560000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 2.0, 'Petrol', 255, 450, 1990, 4, 'X250d', 885000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 4.0, 'Petrol', 350, 550, 2750, 4, 'G500', 2121000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2021, 4.0, 'Petrol', 400, 650, 2870, 4, 'G63 AMG', 3625000, 'Automatic');
 
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (74, 2017, 3.8, 'Petrol', 420, 680, 2150, 1, 'GTR', 1325000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (75, 2018, 3.8, 'Petrol', 420, 680, 2150, 1, 'GTR', 1432000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (76, 2019, 3.8, 'Petrol', 420, 680, 2150, 1, 'GTR', 1654000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (77, 2015, 3.8, 'Petrol', 280, 500, 1680, 1, '370Z', 490000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (78, 2016, 3.8, 'Petrol', 280, 500, 1680, 1, '370Z', 520000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (79, 2016, 2.5, 'Petrol', 160, 450, 2230, 4, 'Navara', 432000, 'Automatic');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (80, 2017, 2.5, 'Petrol', 160, 450, 2230, 4, 'Navara', 498000, 'Manual');
-INSERT INTO tb_VehicleSpecs (VehicleID, Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (81, 2018, 2.5, 'Petrol', 160, 450, 2230, 4, 'Navara', 567000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 2.0, 'Diesel', 110, 450, 1650, 3, '120d', 365000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2015, 3.0, 'Petrol', 275, 500, 1640, 3, '140i', 775000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 2.0, 'Diesel', 115, 500, 1610, 1, '220d', 655000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 3.0, 'Petrol', 285, 525, 1650, 1, 'M235i', 765000, 'Manual');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2015, 2.0, 'Diesel', 125, 500, 1700, 2, '320d', 534000, 'Manual');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 2.0, 'Petrol', 129, 300, 1700, 2, '320i', 826000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 2.0, 'Petrol', 185, 450, 1725, 2, '330i', 978000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 3.0, 'Petrol', 315, 550, 1875, 1, 'M4', 830000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 4.4, 'Petrol', 300, 550, 2000, 2, 'M550i', 1830000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 4.4, 'Petrol', 350, 600, 2005, 4, 'M5', 2725000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2021, 4.4, 'Diesel', 385, 700, 2320, 4, 'X5 M50d', 2725000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 3.0, 'Petrol', 260, 650, 2140, 4, 'X3 3.0d', 1695000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 3.0, 'Diesel', 290, 680, 2260, 4, 'X6 3.0d', 1895000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 4.4, 'Petrol', 385, 700, 2500, 4, 'X6M', 1822000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 4.4, 'Petrol', 420, 730, 2670, 4, 'X 6M', 2999000, 'Automatic');
+
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 1.0, 'Diesel', 70, 120, 1420, 3, 'A3 1.0d', 620000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2014, 1.4, 'Petrol', 100, 150, 1400, 3, 'A3 1.4 TFSI', 316000, 'Manual');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 3.0, 'Petrol', 275, 450, 2110, 2, 'S4', 925000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 2.9, 'Petrol', 315, 500, 2250, 2, 'RS4', 2225000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2015, 3.0, 'Petrol', 295, 500, 1920, 1, 'S5', 600000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 3.0, 'Diesel', 280, 600, 2570, 4, 'Q5 3.0d', 1125000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 3.0, 'Diesel', 300, 650, 2770, 4, 'SQ5', 1715000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 5.2, 'Petrol', 350, 480, 1820, 5, 'R8 V10', 1985000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 5.2, 'Petrol', 380, 500, 1865, 5, 'R8 V10 plus', 2855000, 'Automatic');
+
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 4.0, 'Petrol', 350, 600, 2620, 4, 'RX F', 2025000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 2.0, 'Petrol', 270, 520, 2370, 4, 'RX 350', 1325000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 4.0, 'Petrol', 380, 620, 2730, 4, 'RX F', 2825000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2011, 4.8, 'Petrol', 412, 550, 1480, 5, 'LFA', 3145000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2012, 4.8, 'Petrol', 412, 550, 1480, 5, 'LFA', 3585000, 'Automatic');
+
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2010, 5.2, 'Petrol', 400, 400, 1570, 5, 'Gallardo', 2325000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2012, 5.2, 'Petrol', 400, 400, 1570, 5, 'Gallardo', 2125000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 5.2, 'Petrol', 435, 550, 1510, 5, 'Huracan', 3715000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 5.2, 'Petrol', 435, 550, 1510, 5, 'Huracan', 3845000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 5.2, 'Petrol', 435, 550, 1510, 5, 'Huracan', 4665000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 6.5, 'Petrol', 580, 670, 1680, 5, 'Aventador', 8725000, 'Automatic');
+
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 3.9, 'Petrol', 468, 680, 1580, 5, 'Pista', 7825000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 3.9, 'Petrol', 468, 680, 1580, 5, 'Pista', 7984000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 3.9, 'Petrol', 468, 680, 1580, 5, 'Pista', 8725000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 3.8, 'Petrol', 388, 600, 1520, 1, 'Roma', 3725000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2021, 3.8, 'Petrol', 388, 600, 1520, 1, 'Roma', 4225000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 4.0, 'Hybrid', 850, 980, 1840, 5, 'SF90', 12788000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2021, 4.0, 'Hybrid', 850, 980, 1840, 5, 'SF90', 13725000, 'Automatic');
+
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2015, 3.0, 'Petrol', 295, 500, 1680, 1, '911 Carrera S', 895000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 3.0, 'Petrol', 300, 520, 1720, 1, '911 Carrera 4s', 985000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 3.8, 'Petrol', 385, 750, 1870, 1, '911 turbo S', 3725000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 4.0, 'Petrol', 380, 480, 1630, 1, '911 GT3 RS', 4222000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 2.0, 'Petrol', 220, 450, 1620, 1, 'Cayman S', 755000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 2.0, 'Petrol', 280, 520, 1610, 1, 'Cayman GTS', 798000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 2.0, 'Petrol', 210, 485, 1620, 1, 'Cayman', 825000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 4.0, 'Petrol', 300, 490, 1600, 1, 'Cayman GT4', 2835000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 3.0, 'Petrol', 300, 500, 2450, 4, 'Macan S', 2335000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 3.0, 'Petrol', 320, 550, 2550, 4, 'Macan GTS', 2425000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2020, 0.0, 'Electric', 390, 850, 2670, 1, 'Taycan S', 4500000, 'Automatic');
+
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 4.0, 'Petrol', 350, 550, 1790, 1, 'Vantage', 3725000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 4.0, 'Petrol', 350, 550, 1790, 1, 'Vantage', 3825000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 4.0, 'Petrol', 350, 550, 1790, 1, 'Vantage', 4225000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 4.0, 'Petrol', 350, 550, 1790, 1, 'Vantage', 4525000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 5.9, 'Petrol', 460, 550, 2100, 1, 'Vanquish', 4725000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 5.9, 'Petrol', 460, 550, 2100, 1, 'Vanquish', 5225000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 5.9, 'Petrol', 460, 550, 2100, 1, 'Vanquish', 5525000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 5.9, 'Petrol', 460, 550, 2100, 1, 'Vanquish', 5755000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 6.0, 'Petrol', 600, 820, 1690, 5, 'Vulcan', 9988000, 'Automatic');
+
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 3.8, 'Petrol', 420, 680, 2150, 1, 'GTR', 1325000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 3.8, 'Petrol', 420, 680, 2150, 1, 'GTR', 1432000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2019, 3.8, 'Petrol', 420, 680, 2150, 1, 'GTR', 1654000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2015, 3.8, 'Petrol', 280, 500, 1680, 1, '370Z', 490000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 3.8, 'Petrol', 280, 500, 1680, 1, '370Z', 520000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2016, 2.5, 'Petrol', 160, 450, 2230, 4, 'Navara', 432000, 'Automatic');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2017, 2.5, 'Petrol', 160, 450, 2230, 4, 'Navara', 498000, 'Manual');
+INSERT INTO tb_VehicleSpecs (Year, Displacement, FuelType, Power, Torque, Weight, BodyTypeID, AdditionalInfo, Price, Transmission) Values (2018, 2.5, 'Petrol', 160, 450, 2230, 4, 'Navara', 567000, 'Automatic');
 
 
 
@@ -528,11 +528,11 @@ INSERT INTO tb_AvailableVehicles (VehicleID, DateAdded) Values (81, GetDate());
 
 
 
-INSERT INTO tb_VehicleTransaction (TransactionId, VehicleID) Values (1, 3);
-INSERT INTO tb_VehicleTransaction (TransactionId, VehicleID) Values (2, 14);
-INSERT INTO tb_VehicleTransaction (TransactionId, VehicleID) Values (3, 54);
-INSERT INTO tb_VehicleTransaction (TransactionId, VehicleID) Values (4, 68);
-INSERT INTO tb_VehicleTransaction (TransactionId, VehicleID) Values (5, 71);
+INSERT INTO tb_VehicleTransaction (VehicleID) Values (3);
+INSERT INTO tb_VehicleTransaction (VehicleID) Values (14);
+INSERT INTO tb_VehicleTransaction (VehicleID) Values (54);
+INSERT INTO tb_VehicleTransaction (VehicleID) Values (68);
+INSERT INTO tb_VehicleTransaction (VehicleID) Values (71);
 
 
 

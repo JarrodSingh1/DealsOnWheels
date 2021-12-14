@@ -264,3 +264,4 @@ D:\Dev\DemoDealsOnWheels\API\DealsOnWheelsAPI\obj\Debug\net6.0\DealsOnWheelsAPI.
 D:\Dev\DemoDealsOnWheels\API\DealsOnWheelsAPI\obj\Debug\net6.0\ref\DealsOnWheelsAPI.dll
 D:\Dev\DemoDealsOnWheels\API\DealsOnWheelsAPI\obj\Debug\net6.0\DealsOnWheelsAPI.pdb
 D:\Dev\DemoDealsOnWheels\API\DealsOnWheelsAPI\obj\Debug\net6.0\DealsOnWheelsAPI.genruntimeconfig.cache
+D:\Dev\DemoDealsOnWheels\API\DealsOnWheelsAPI\obj\Debug\net6.0\DealsOnWheelsAPI.csproj.AssemblyReference.cache

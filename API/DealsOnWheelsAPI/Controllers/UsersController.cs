@@ -53,5 +53,24 @@ namespace DealsOnWheelsAPI.Controllers
         {
             return await _thisRepository.GetAllUserInfo();
         }
+
+
+        // POST: api/Users/AddNewUser
+        [HttpPost]
+        [Route("api/Users/AddNewUser")]
+        public async Task<UserInfo?> AddNewUser(NewUser newUser)
+        {
+           var userId = await _thisRepository.AddNewUser(newUser);
+
+           if(userId != null)
+           {
+                int id = (int)userId;
+                return await UserInfo(id);
+           }
+           else 
+           {
+                return null;
+           }
+        }
     }
 }

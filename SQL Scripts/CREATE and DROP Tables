@@ -5,8 +5,8 @@ USE DealsOnWheels;
 
 --User tables
 CREATE TABLE tb_UserCredentials (
-    UserID int NOT NULL PRIMARY KEY,
-    EmailAddress varchar(255) NOT NULL,
+    UserID INT IDENTITY NOT NULL PRIMARY KEY,
+    EmailAddress varchar(255) NOT NULL UNIQUE,
     Password varchar(255) NOT NULL
 );
 
@@ -90,12 +90,12 @@ CREATE TABLE tb_VehicleImage(
 
 
 CREATE TABLE tb_Manufacturer(
-    ManufacturerID int NOT NULL PRIMARY KEY,
+    ManufacturerID INT IDENTITY NOT NULL PRIMARY KEY,
     ManufacturerName varchar(50) NOT NULL
 );
 
 CREATE TABLE tb_Model(
-    ModelID int NOT NULL,
+    ModelID INT IDENTITY NOT NULL PRIMARY KEY,
     ModelName varchar(50) NOT NULL
 );
 
@@ -106,7 +106,7 @@ CREATE TABLE tb_VehicleModel(
 
 
 CREATE TABLE tb_VehicleSpecs(
-    VehicleID int NOT NULL PRIMARY KEY,
+    VehicleID INT IDENTITY NOT NULL PRIMARY KEY,
     Year int NOT NULL,
     Displacement float NOT NULL,
     FuelType varchar(255) NOT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE tb_VehicleSpecs(
 
 
 CREATE TABLE tb_VehicleBodyType(
-    BodyTypeID int NOT NULL PRIMARY KEY,
+    BodyTypeID INT IDENTITY NOT NULL PRIMARY KEY,
     BodyType varchar(50) NOT NULL
 );
 
@@ -166,7 +166,7 @@ SELECT vm.VehicleID, m.ManufacturerID, m.ManufacturerName, mo.ModelName, vs.Year
 
 
 CREATE TABLE tb_VehicleTransaction(
-    TransactionID int NOT NULL PRIMARY KEY,
+    TransactionID INT IDENTITY NOT NULL PRIMARY KEY,
     VehicleID int NOT NULL
 );
 

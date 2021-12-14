@@ -1,6 +1,7 @@
 ﻿using DealsOnWheelsAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace DealsOnWheelsAPI.Data.EfCore
 {
@@ -105,6 +106,136 @@ namespace DealsOnWheelsAPI.Data.EfCore
             }
             
             return returnList;
+        }
+
+
+        public async Task<int?> AddNewUser(NewUser newUser)
+        {
+            var valid = true;
+
+            try
+            {
+                if (newUser != null)
+                {
+                    User user = new User();
+                    user.EmailAddress = newUser.EmailAddress;
+                    user.Password = newUser.Password;
+
+                    try
+                    {
+                        _context.tb_UserCredentials.Add(user);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("Error adding new user to tb_UserCredentials: " + ex.Message);
+                        valid = false;
+                    }
+
+                    if (valid)
+                    {
+                        UserPersonalDetails userPersonalDetails = new UserPersonalDetails();
+                        userPersonalDetails.FirstName = newUser.FirstName;
+                        userPersonalDetails.LastName = newUser.LastName;
+                        userPersonalDetails.IDNumber = newUser.IDNumber;
+
+                        try
+                        {
+                            _context.tb_UserPersonalDetails.Add(userPersonalDetails);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine("Error adding new user to tb_UserPersonalDetails: " + ex.Message);
+                            valid = false;
+                        }
+
+                    }
+
+                    if (valid)
+                    {
+                        UserContactDetails userContactDetails = new UserContactDetails();
+                        userContactDetails.PhoneNumber = newUser.PhoneNumber;
+
+                        try
+                        {
+                            _context.tb_UserContactDetails.Add(userContactDetails);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine("Error adding new user to tb_UserContactDetails: " + ex.Message);
+                            valid = false;
+                        }
+
+                    }
+
+                    if (valid)
+                    {
+                        UserPaymentDetails userPaymentDetails = new UserPaymentDetails();
+                        userPaymentDetails.AccountNumber = newUser.AccountNumber;
+
+                        try
+                        {
+                            _context.tb_UserPaymentDetails.Add(userPaymentDetails);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine("Error adding new user to tb_userPaymentDetails: " + ex.Message);
+                            valid = false;
+                        }
+                    }
+
+                    if (valid)
+                    {
+                        UserAddressDetails userAddressDetails = new UserAddressDetails();
+                        userAddressDetails.StreetAddress = newUser.StreetAddress;
+                        userAddressDetails.City = newUser.City;
+                        userAddressDetails.Country = newUser.Country;
+                        userAddressDetails.State = newUser.State;
+                        userAddressDetails.ZipCode = newUser.ZipCode;
+
+                        try
+                        {
+                            _context.tb_UserAddressDetails.Add(userAddressDetails);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine("Error adding new user to tb_UserAddressDetails: " + ex.Message);
+                            valid = false;
+                        }
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+
+                if (valid)
+                {
+                    await _context.SaveChangesAsync();
+
+                    var user = await _context.tb_UserCredentials
+                 .FirstOrDefaultAsync(m => m.EmailAddress == newUser.EmailAddress);
+
+                    if (user != null)
+                    {
+                        return user.UserId;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error adding new user: " + ex.Message);
+                return null;
+            }
         }
     }
 }

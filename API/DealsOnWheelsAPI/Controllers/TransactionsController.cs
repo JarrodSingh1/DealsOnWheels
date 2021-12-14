@@ -38,5 +38,13 @@ namespace DealsOnWheelsAPI.Controllers
         {
             return await _thisRepository.GetAllAvaliableVehicles();
         }
+
+        // POST: "api/Transactions/AddNewTransaction"
+        [HttpPost]
+        [Route("api/Transactions/AddNewTransaction")]
+        public async Task<VehicleTransaction?> AddNewTransaction(NewTransaction newTransaction)
+        {
+            return await _thisRepository.AddNewTransaction(newTransaction);
+        }
     }
 }

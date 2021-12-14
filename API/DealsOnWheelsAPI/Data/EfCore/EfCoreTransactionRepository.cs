@@ -1,5 +1,6 @@
 ﻿using DealsOnWheelsAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace DealsOnWheelsAPI.Data.EfCore
 {
@@ -125,6 +126,74 @@ namespace DealsOnWheelsAPI.Data.EfCore
         public async Task<List<AvailableVehicles>> GetAllAvaliableVehicles()
         {
             return await _context.tb_AvailableVehicles.ToListAsync();
+        }
+
+        public async Task<VehicleTransaction?> AddNewTransaction(NewTransaction newTransaction)
+        {
+            if (newTransaction != null)
+            {
+                bool valid = true;
+                var vehicle = await _context.tb_VehicleSpecs
+               .FirstOrDefaultAsync(m => m.VehicleId == newTransaction.VehicleId);
+                var user = await _context.tb_UserCredentials
+               .FirstOrDefaultAsync(m => m.UserId == newTransaction.UserId);
+
+                if (user != null && vehicle != null)
+                {
+                    VehicleTransaction vehicleTransaction = new VehicleTransaction();
+                    vehicleTransaction.VehicleId = newTransaction.VehicleId;
+
+                    try
+                    {
+                        _context.tb_VehicleTransaction.Add(vehicleTransaction);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("Error adding new vehicleTransaction to tb_VehicleTransaction: " + ex.Message);
+                        valid = false;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+
+                if(valid)
+                {
+                    SoldVehicles soldVehicles = new SoldVehicles();
+                    soldVehicles.VehicleId = newTransaction.VehicleId;
+                    soldVehicles.DateSold = DateTime.Now;
+                    soldVehicles.UserId = newTransaction.UserId;
+
+                    try
+                    {
+                        _context.tb_SoldVehicles.Add(soldVehicles);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("Error adding new soldVehicles to tb_SoldVehicles: " + ex.Message);
+                        valid = false;
+                    }
+                }
+
+                if(valid)
+                {
+                    var transaction = await _context.tb_VehicleTransaction
+               .FirstOrDefaultAsync(m => m.VehicleId == newTransaction.VehicleId);
+
+                    return transaction;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
