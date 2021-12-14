@@ -57,5 +57,54 @@ namespace DealsOnWheelsAPI.Data.EfCore
 
             return returnObject;
         }
+
+        public async Task<List<UserInfo>> GetAllUserInfo()
+        {
+            var returnList = new List<UserInfo>();
+            var userList = await _context.tb_UserCredentials.ToListAsync();
+
+            foreach (var searchUser in userList)
+            {
+                
+                bool valid = true;
+
+                UserInfo item = new UserInfo();
+
+                if (searchUser == null)
+                {
+                    valid = false;
+                }
+                var userId = searchUser.UserId;
+
+                var userAddressDetails = await _context.tb_UserAddressDetails
+                     .FirstOrDefaultAsync(m => m.UserId == userId);
+                var userContactDetails = await _context.tb_UserContactDetails
+                     .FirstOrDefaultAsync(m => m.UserId == userId);
+                var userPersonalDetails = await _context.tb_UserPersonalDetails
+                     .FirstOrDefaultAsync(m => m.UserId == userId);
+                if (userAddressDetails == null || userContactDetails == null || userPersonalDetails == null)
+                {
+                    valid = false;
+                }
+
+                item.City = userAddressDetails.City;
+                item.Country = userAddressDetails.Country;
+                item.StreetAddress = userAddressDetails.StreetAddress;
+                item.State = userAddressDetails.State;
+                item.ZipCode = userAddressDetails.ZipCode;
+                item.LastName = userPersonalDetails.LastName;
+                item.FirstName = userPersonalDetails.FirstName;
+                item.EmailAddress = searchUser.EmailAddress;
+                item.PhoneNumber = userContactDetails.PhoneNumber;
+                item.UserId = searchUser.UserId;
+
+                if(valid)
+                {
+                    returnList.Add(item);
+                }
+            }
+            
+            return returnList;
+        }
     }
 }

@@ -94,17 +94,21 @@ CREATE TABLE tb_Manufacturer(
     ManufacturerName varchar(50) NOT NULL
 );
 
-
-CREATE TABLE tb_ManufacturerModelInfo(
-    ManufacturerID int NOT NULL,
+CREATE TABLE tb_Model(
+    ModelID int NOT NULL,
     ModelName varchar(50) NOT NULL
+);
+
+CREATE TABLE tb_VehicleModel(
+    VehicleID int NOT NULL PRIMARY KEY,
+    ModelID int NOT NULL,
 );
 
 
 CREATE TABLE tb_VehicleSpecs(
     VehicleID int NOT NULL PRIMARY KEY,
     Year int NOT NULL,
-    Displacement varchar(255) NOT NULL,
+    Displacement float NOT NULL,
     FuelType varchar(255) NOT NULL,
     Power float NOT NULL,	
     Torque float NOT NULL,
@@ -132,9 +136,9 @@ ALTER TABLE tb_VehicleImage
 ADD CONSTRAINT FK_VehicleImage
 FOREIGN KEY (VehicleID) REFERENCES tb_VehicleSpecs(VehicleID);
 
-ALTER TABLE tb_ManufacturerModelInfo
-ADD CONSTRAINT FK_ManufacturerModelInfoID
-FOREIGN KEY (ManufacturerID) REFERENCES tb_Manufacturer(ManufacturerID);
+ALTER TABLE tb_VehicleModel
+ADD CONSTRAINT FK_VehicleModelInfoID
+FOREIGN KEY (VehicleID) REFERENCES tb_VehicleSpecs(VehicleID);
 
 ALTER TABLE tb_VehicleSpecs
 ADD CONSTRAINT FK_VehicleBodyTypeID
@@ -143,7 +147,7 @@ FOREIGN KEY (BodyTypeID) REFERENCES tb_VehicleBodyType(BodyTypeID);
 
 --Vehicle Tables Views
 CREATE VIEW [vw_VehicleInfo] AS
-SELECT vm.VehicleID, m.ManufacturerID, m.ManufacturerName, mmi.ModelName, vs.Year, vs.Price, vs.FuelType, vs.Transmission, vs.Displacement, vs.Power, vs.Torque, vs.Weight, vbt.BodyType, vs.AdditionalInfo
+SELECT vm.VehicleID, m.ManufacturerID, m.ManufacturerName, mo.ModelName, vs.Year, vs.Price, vs.FuelType, vs.Transmission, vs.Displacement, vs.Power, vs.Torque, vs.Weight, vbt.BodyType, vs.AdditionalInfo
 	FROM tb_VehicleBodyType vbt
 		JOIN tb_VehicleSpecs vs
 		ON vbt.BodyTypeID = vs.BodyTypeID
@@ -151,8 +155,10 @@ SELECT vm.VehicleID, m.ManufacturerID, m.ManufacturerName, mmi.ModelName, vs.Yea
 			ON vs.VehicleId = vm.VehicleId
 				JOIN tb_Manufacturer m 
 				ON vm.ManufacturerID = m.ManufacturerID
-					JOIN tb_ManufacturerModelInfo mmi 
-					ON m.ManufacturerID = mmi.ManufacturerID
+					JOIN tb_VehicleModel vmo 
+					ON vs.VehicleId = vmo.VehicleId
+						JOIN tb_Model mo 
+						ON vmo.ModelId = mo.ModelId
 
 
 
@@ -195,18 +201,18 @@ SELECT vt.TransactionID, vs.VehicleID, sv.DateSold, av.DateAdded, vs.Price, sv.U
 		ON vt.VehicleID = vs.VehicleID
 			JOIN tb_SoldVehicles sv
 			ON vs.VehicleId = sv.VehicleId
-				JOIN tb_AvaliableVehicles av 
+				JOIN tb_AvailableVehicles av 
 				ON sv.VehicleId = av.VehicleId
 
 
 CREATE VIEW [vw_TransactionInfo] AS
-SELECT vt.TransactionID, vs.VehicleID, m.ManufacturerName, mmi.ModelName, vs.Year, vs.Price, vs.FuelType, vs.Transmission, vs.Displacement, vs.Power, vs.Torque, vs.Weight, vbt.BodyType, vs.AdditionalInfo, sv.DateSold, av.DateAdded, upd.UserID, upd.FirstName, upd.LastName, upyd.AccountNumber   
+SELECT vt.TransactionID, vs.VehicleID, m.ManufacturerName, mo.ModelName, vs.Year, vs.Price, vs.FuelType, vs.Transmission, vs.Displacement, vs.Power, vs.Torque, vs.Weight, vbt.BodyType, vs.AdditionalInfo, sv.DateSold, av.DateAdded, upd.UserID, upd.FirstName, upd.LastName, upyd.AccountNumber   
 	FROM tb_VehicleBodyType vbt
 		JOIN tb_VehicleSpecs vs
 		ON vbt.BodyTypeID = vs.BodyTypeID
 			JOIN tb_SoldVehicles sv
 			ON vs.VehicleId = sv.VehicleId
-					JOIN tb_AvaliableVehicles av 
+					JOIN tb_AvailableVehicles av 
 					ON sv.VehicleId = av.VehicleId
 						JOIN tb_VehicleTransaction vt
 						ON av.VehicleId = vt.VehicleId
@@ -214,12 +220,14 @@ SELECT vt.TransactionID, vs.VehicleID, m.ManufacturerName, mmi.ModelName, vs.Yea
 							ON vs.VehicleId = vm.VehicleId
 								JOIN tb_Manufacturer m 
 								ON vm.ManufacturerID = m.ManufacturerID
-									JOIN tb_ManufacturerModelInfo mmi 
-									ON m.ManufacturerID = mmi.ManufacturerID
-										JOIN tb_UserPersonalDetails upd
-										ON sv.UserID = upd.UserID
-											JOIN tb_UserPaymentDetails upyd
-											ON upd.UserID = upyd.UserID
+									JOIN tb_VehicleModel vmo 
+									ON vs.VehicleId = vmo.VehicleId
+										JOIN tb_Model mo 
+										ON vmo.ModelId = mo.ModelId
+											JOIN tb_UserPersonalDetails upd
+											ON sv.UserID = upd.UserID
+												JOIN tb_UserPaymentDetails upyd
+												ON upd.UserID = upyd.UserID
 
 											
 
@@ -245,11 +253,13 @@ DROP VIEW vw_UserInfo;
 --Vehicle tables
 DROP TABLE tb_VehicleManufacturer;
 DROP TABLE tb_Manufacturer;
-DROP TABLE tb_ManufacturerModelInfo;
+DROP TABLE tb_Model;
+DROP TABLE tb_VehicleModel;
 DROP TABLE tb_VehicleSpecs;
 DROP TABLE tb_VehicleBodyType;
 DROP CONSTRAINT FK_VehicleManufacturerID;
 DROP CONSTRAINT FK_VehicleBodyTypeID;
+DROP CONSTRAINT FK_VehicleModelInfoID;
 DROP VIEW vw_VehicleInfo;
 
 

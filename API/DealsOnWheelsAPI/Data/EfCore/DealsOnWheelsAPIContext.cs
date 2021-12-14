@@ -17,7 +17,9 @@ namespace DealsOnWheelsAPI.Data.EfCore
 
         public DbSet<DealsOnWheelsAPI.Models.Manufacturer> tb_Manufacturer { get; set; }
 
-        public DbSet<DealsOnWheelsAPI.Models.ManufacturerModelInfo> tb_ManufacturerModelInfo { get; set; }
+        public DbSet<DealsOnWheelsAPI.Models.Model> tb_Model { get; set; }
+
+        public DbSet<DealsOnWheelsAPI.Models.VehicleModel> tb_VehicleModel { get; set; }
 
         public DbSet<DealsOnWheelsAPI.Models.AvailableVehicles> tb_AvailableVehicles { get; set; }
 

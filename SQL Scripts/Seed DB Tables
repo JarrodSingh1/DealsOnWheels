@@ -28,49 +28,48 @@ INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (8,'AstonM
 INSERT INTO tb_Manufacturer (ManufacturerID, ManufacturerName) Values (9,'Nissan');
 
 
+INSERT INTO tb_Model (ModelID, ModelName) Values (1,'A class');
+INSERT INTO tb_Model (ModelID, ModelName) Values (2,'C class');
+INSERT INTO tb_Model (ModelID, ModelName) Values (3,'E class');
+INSERT INTO tb_Model (ModelID, ModelName) Values (4,'S class');
+INSERT INTO tb_Model (ModelID, ModelName) Values (5,'X class');
+INSERT INTO tb_Model (ModelID, ModelName) Values (6,'G class');
+INSERT INTO tb_Model (ModelID, ModelName) Values (7,'1 series');
+INSERT INTO tb_Model (ModelID, ModelName) Values (8,'2 series');
+INSERT INTO tb_Model (ModelID, ModelName) Values (9,'3 series');
+INSERT INTO tb_Model (ModelID, ModelName) Values (10,'4 series');
+INSERT INTO tb_Model (ModelID, ModelName) Values (11,'5 series');
+INSERT INTO tb_Model (ModelID, ModelName) Values (12,'X series');
+INSERT INTO tb_Model (ModelID, ModelName) Values (13,'A3');
+INSERT INTO tb_Model (ModelID, ModelName) Values (14,'A4');
+INSERT INTO tb_Model (ModelID, ModelName) Values (15,'A5');
+INSERT INTO tb_Model (ModelID, ModelName) Values (16,'Q5');
+INSERT INTO tb_Model (ModelID, ModelName) Values (17,'R8');
+INSERT INTO tb_Model (ModelID, ModelName) Values (18,'RX');
+INSERT INTO tb_Model (ModelID, ModelName) Values (19,'LFA');
+INSERT INTO tb_Model (ModelID, ModelName) Values (20,'Gallardo');
+INSERT INTO tb_Model (ModelID, ModelName) Values (21,'Huracan');
+INSERT INTO tb_Model (ModelID, ModelName) Values (22,'Aventador');
+INSERT INTO tb_Model (ModelID, ModelName) Values (23,'458 Pista');
+INSERT INTO tb_Model (ModelID, ModelName) Values (24,'Roma');
+INSERT INTO tb_Model (ModelID, ModelName) Values (25,'SF90');
+INSERT INTO tb_Model (ModelID, ModelName) Values (26,'911');
+INSERT INTO tb_Model (ModelID, ModelName) Values (27,'Cayman');
+INSERT INTO tb_Model (ModelID, ModelName) Values (28,'Macan');
+INSERT INTO tb_Model (ModelID, ModelName) Values (29,'Taycan');
+INSERT INTO tb_Model (ModelID, ModelName) Values (30,'Vantage');
+INSERT INTO tb_Model (ModelID, ModelName) Values (31,'Vanquish');
+INSERT INTO tb_Model (ModelID, ModelName) Values (32,'Vulcan');
+INSERT INTO tb_Model (ModelID, ModelName) Values (33,'GTR');
+INSERT INTO tb_Model (ModelID, ModelName) Values (34,'370z');
+INSERT INTO tb_Model (ModelID, ModelName) Values (35,'Navara');
 
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (1,'A class');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (1,'C class');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (1,'E class');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (1,'S class');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (1,'X class');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (1,'G class');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (2,'1 series');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (2,'2 series');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (2,'3 series');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (2,'4 series');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (2,'5 series');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (2,'X series');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (3,'A3');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (3,'A4');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (3,'A5');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (3,'Q5');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (3,'R8');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (4,'RX');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (4,'LFA');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (5,'Gallardo');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (5,'Huracan');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (5,'Aventador');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (6,'458 Pista');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (6,'Roma');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (6,'SF90');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (7,'911');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (7,'Cayman');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (7,'Macan');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (7,'Taycan');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (8,'Vantage');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (8,'Vanquish');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (8,'Vulcan');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (9,'GTR');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (9,'370z');
-INSERT INTO tb_ManufacturerModelInfo (ManufacturerID, ModelName) Values (9,'Navara');
 
 INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (1,'Coupe');
 INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (2,'Sedan');
 INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (3,'Hatchback');
 INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (4,'Truck/SUV');
 INSERT INTO tb_VehicleBodyType (BodyTypeID, BodyType) Values (5,'Hypercar');
-
 
 
 
@@ -250,6 +249,96 @@ INSERT INTO tb_VehicleManufacturer (VehicleID, ManufacturerID) Values (79,9);
 INSERT INTO tb_VehicleManufacturer (VehicleID, ManufacturerID) Values (80,9);
 INSERT INTO tb_VehicleManufacturer (VehicleID, ManufacturerID) Values (81,9);
 
+
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (1,1);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (2,1);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (3,2);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (4,2);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (5,2);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (6,2);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (7,3);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (8,4);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (9,5);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (10,6);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (11,6);
+
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (12,7);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (13,7);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (14,8);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (15,8);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (16,9);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (17,9);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (18,9);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (19,10);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (20,11);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (21,11);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (22,12);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (23,12);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (24,12);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (25,12);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (26,12);
+
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (27,13);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (28,13);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (29,14);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (30,14);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (31,15);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (32,16);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (33,16);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (34,17);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (35,17);
+
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (36,18);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (37,18);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (38,18);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (39,19);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (40,19);
+
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (41,20);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (42,20);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (43,21);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (44,21);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (45,21);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (46,22);
+
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (47,23);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (48,23);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (49,23);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (50,24);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (51,24);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (52,25);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (53,25);
+
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (54,26);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (55,26);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (56,26);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (57,26);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (58,27);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (59,27);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (60,27);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (61,27);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (62,28);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (63,28);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (64,29);
+
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (65,30);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (66,30);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (67,30);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (68,30);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (69,31);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (70,31);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (71,31);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (72,31);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (73,32);
+
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (74,33);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (75,33);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (76,33);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (77,34);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (78,34);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (79,35);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (80,35);
+INSERT INTO tb_VehicleModel (VehicleID, ModelID) Values (81,35);
 
 
 
@@ -481,7 +570,8 @@ SELECT * FROM tb_UserContactDetails
 SELECT * FROM tb_UserPaymentDetails
 SELECT * FROM tb_UserAddressDetails
 SELECT * FROM tb_Manufacturer
-SELECT * FROM tb_ManufacturerModelInfo
+SELECT * FROM tb_Model
+SELECT * FROM tb_VehicleModel
 SELECT * FROM tb_VehicleBodyType
 SELECT * FROM tb_VehicleSpecs
 SELECT * FROM tb_VehicleManufacturer
@@ -489,6 +579,10 @@ SELECT * FROM tb_VehicleImage
 SELECT * FROM tb_AvailableVehicles
 SELECT * FROM tb_VehicleTransaction
 SELECT * FROM tb_SoldVehicles
+SELECT * FROM vw_UserInfo
+SELECT * FROM vw_VehicleInfo
+SELECT * FROM vw_Transactions
+SELECT * FROM vw_TransactionInfo
 
 --DELETE ALL
 DELETE FROM tb_UserCredentials
@@ -497,7 +591,8 @@ DELETE FROM tb_UserContactDetails
 DELETE FROM tb_UserPaymentDetails
 DELETE FROM tb_UserAddressDetails
 DELETE FROM tb_Manufacturer
-DELETE FROM tb_ManufacturerModelInfo
+DELETE FROM tb_Model
+DELETE FROM tb_VehicleModel
 DELETE FROM tb_VehicleBodyType
 DELETE FROM tb_VehicleSpecs
 DELETE FROM tb_VehicleManufacturer
@@ -513,7 +608,8 @@ DROP TABLE  tb_UserContactDetails
 DROP TABLE  tb_UserPaymentDetails
 DROP TABLE  tb_UserAddressDetails
 DROP TABLE  tb_Manufacturer
-DROP TABLE  tb_ManufacturerModelInfo
+DROP TABLE tb_Model
+DROP TABLE tb_VehicleModel
 DROP TABLE  tb_VehicleBodyType
 DROP TABLE  tb_VehicleSpecs
 DROP TABLE  tb_VehicleManufacturer

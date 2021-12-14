@@ -41,7 +41,6 @@ namespace DealsOnWheelsAPI.Data.EfCore
                 transaction.UserId = soldVehicles.UserId;
 
                 returnList.Add(transaction);
-
             }
 
             return returnList;
@@ -67,11 +66,11 @@ namespace DealsOnWheelsAPI.Data.EfCore
                 .FirstOrDefaultAsync(m => m.VehicleId == transaction.VehicleId);
                 var vehicleManufacturer = await _context.tb_VehicleManufacturer
                 .FirstOrDefaultAsync(m => m.VehicleId == transaction.VehicleId);
-                
-                
+                var vehicleModel = await _context.tb_VehicleModel
+                .FirstOrDefaultAsync(m => m.VehicleId == item.VehicleId);
 
 
-                if (soldVehicles == null || vehicleSpecs == null || availableVehicles == null || vehicleManufacturer == null)
+                if (soldVehicles == null || vehicleSpecs == null || availableVehicles == null || vehicleManufacturer == null || vehicleModel == null)
                 {
                     continue;
                 }
@@ -82,8 +81,8 @@ namespace DealsOnWheelsAPI.Data.EfCore
                 var manufacturerId = vehicleManufacturer.ManufacturerId;
                 var manufacturer = await _context.tb_Manufacturer
                 .FirstOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
-                var model = await _context.tb_ManufacturerModelInfo
-                .FirstOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
+                var model = await _context.tb_Model
+                .FirstOrDefaultAsync(m => m.ModelId == vehicleModel.ModelId);
 
 
 

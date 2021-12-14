@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DealsOnWheelsAPI.Models
 {
-    public class ManufacturerModelInfo
+    public class Model
     {
         [Required]
         [Key]
-        public int ManufacturerId { get; set; }
+        public int ModelId { get; set; }
 
         [Required]
         [StringLength(255, MinimumLength = 1)]

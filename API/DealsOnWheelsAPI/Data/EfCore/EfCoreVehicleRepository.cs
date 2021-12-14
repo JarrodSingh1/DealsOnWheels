@@ -11,6 +11,74 @@ namespace DealsOnWheelsAPI.Data.EfCore
             _context = context;
         }
 
+        public async Task<List<VehicleInfo>> GetAllVehicleInfo()
+        {
+            List<VehicleInfo> returnList = new List<VehicleInfo>();
+            List <VehicleSpecs> vehicleList = await _context.tb_VehicleSpecs.ToListAsync();
+
+            foreach (VehicleSpecs searchVehicle in vehicleList)
+            {
+                bool valid = true;
+                int vehicleId = searchVehicle.VehicleId;
+
+                VehicleInfo vInfo = new VehicleInfo();
+
+                var vehicleManufacturerInfo = await _context.tb_VehicleManufacturer
+                     .FirstOrDefaultAsync(m => m.VehicleId == vehicleId);
+                if (vehicleManufacturerInfo == null)
+                {
+                    valid = false;
+                }
+
+                var manufacturerId = vehicleManufacturerInfo.ManufacturerId;
+                var bodyTypeId = searchVehicle.BodyTypeId;
+
+                var manufacturerInfo = await _context.tb_Manufacturer
+                     .FirstOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
+                var vehicleModel = await _context.tb_VehicleModel
+                     .FirstOrDefaultAsync(m => m.VehicleId == vehicleId);
+                
+                var bodyTypeInfo = await _context.tb_VehicleBodyType
+                     .FirstOrDefaultAsync(m => m.BodyTypeId == bodyTypeId);
+
+                if (manufacturerInfo == null || vehicleModel == null || bodyTypeInfo == null)
+                {
+                    valid = false;
+                }
+
+                var model = await _context.tb_Model
+                     .FirstOrDefaultAsync(m => m.ModelId == vehicleModel.ModelId);
+
+                if (model == null)
+                {
+                    valid = false;
+                }    
+
+
+                vInfo.Power = searchVehicle.Power;
+                vInfo.AdditionalInfo = searchVehicle.AdditionalInfo;
+                vInfo.Displacement = searchVehicle.Displacement;
+                vInfo.BodyType = bodyTypeInfo.BodyType;
+                vInfo.Year = searchVehicle.Year;
+                vInfo.ManufacturerId = manufacturerId;
+                vInfo.Torque = searchVehicle.Torque;
+                vInfo.Weight = searchVehicle.Weight;
+                vInfo.Price = searchVehicle.Price;
+                vInfo.ModelName = model.ModelName;
+                vInfo.FuelType = searchVehicle.FuelType;
+                vInfo.VehicleId = searchVehicle.VehicleId;
+                vInfo.ManufacturerName = manufacturerInfo.ManufacturerName;
+                vInfo.Transmission = searchVehicle.Transmission;
+
+                if(valid)
+                {
+                    returnList.Add(vInfo);
+                }
+            }
+
+            return returnList;
+        }
+
         public async Task<VehicleInfo?> GetVehicleInfo(int vehicleId)
         {
             VehicleInfo returnObject = new VehicleInfo();
@@ -34,12 +102,21 @@ namespace DealsOnWheelsAPI.Data.EfCore
 
             var manufacturerInfo = await _context.tb_Manufacturer
                  .FirstOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
-            var manufacturerModelInfo = await _context.tb_ManufacturerModelInfo
-                 .FirstOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
+            var vehicleModel = await _context.tb_VehicleModel
+                    .FirstOrDefaultAsync(m => m.VehicleId == searchVehicle.VehicleId);
+            
             var bodyTypeInfo = await _context.tb_VehicleBodyType
                  .FirstOrDefaultAsync(m => m.BodyTypeId == bodyTypeId);
 
-            if (manufacturerInfo == null || manufacturerModelInfo == null || bodyTypeInfo == null)
+            if (manufacturerInfo == null || vehicleModel == null || bodyTypeInfo == null)
+            {
+                return null;
+            }
+
+            var model = await _context.tb_Model
+                     .FirstOrDefaultAsync(m => m.ModelId == vehicleModel.ModelId);
+
+            if(model == null)
             {
                 return null;
             }
@@ -53,7 +130,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
             returnObject.Torque = searchVehicle.Torque;
             returnObject.Weight = searchVehicle.Weight;
             returnObject.Price = searchVehicle.Price;
-            returnObject.ModelName = manufacturerModelInfo.ModelName;
+            returnObject.ModelName = model.ModelName;
             returnObject.FuelType = searchVehicle.FuelType;
             returnObject.VehicleId = searchVehicle.VehicleId;
             returnObject.ManufacturerName = manufacturerInfo.ManufacturerName;
@@ -67,14 +144,9 @@ namespace DealsOnWheelsAPI.Data.EfCore
             return await _context.tb_Manufacturer.ToListAsync();
         }
 
-        public async Task<List<ManufacturerModelInfo>> GetAllModelsForManufacturer(int manufacturerId)
+        public async Task<List<Model>> GetAllModels()
         {
-            return await _context.tb_ManufacturerModelInfo.Where(m => m.ManufacturerId == manufacturerId).ToListAsync();
-        }
-
-        public async Task<List<ManufacturerModelInfo>> GetAllModels()
-        {
-            return await _context.tb_ManufacturerModelInfo.ToListAsync();
+            return await _context.tb_Model.ToListAsync();
         }
 
         public async Task<List<VehicleSpecs>> GetAllVehicles()

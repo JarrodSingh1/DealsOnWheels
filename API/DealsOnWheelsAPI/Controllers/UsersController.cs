@@ -30,7 +30,7 @@ namespace DealsOnWheelsAPI.Controllers
            }
         }
 
-        // POST: api/Users/UserInfo/5
+        // Get: api/Users/UserInfo/5
         [HttpGet]
         [Route("api/Users/UserInfo/{userId}")]
         public async Task<UserInfo?> UserInfo(int userId)
@@ -44,6 +44,14 @@ namespace DealsOnWheelsAPI.Controllers
             {
                 return null;
             }
+        }
+
+        // Get: api/Users/GetAllUserInfo
+        [HttpGet]
+        [Route("api/Users/GetAllUserInfo")]
+        public async Task<List<UserInfo>> GetAllUserInfo()
+        {
+            return await _thisRepository.GetAllUserInfo();
         }
     }
 }

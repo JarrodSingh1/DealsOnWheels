@@ -23,7 +23,15 @@ namespace DealsOnWheelsAPI.Controllers
             return await _thisRepository.GetAllVehicles();
         }
 
-        // POST: "api/Vehicles/GetVehicleInfo/5"
+        // GET: "api/Vehicles/GetAllVehicleInfo"
+        [HttpGet]
+        [Route("api/Vehicles/GetAllVehicleInfo")]
+        public async Task<List<VehicleInfo>> GetAllVehicleInfo()
+        {
+            return await _thisRepository.GetAllVehicleInfo();
+        }
+
+        // GET: "api/Vehicles/GetVehicleInfo/5"
         [HttpGet]
         [Route("api/Vehicles/GetVehicleInfo/{vehicleId}")]
         public async Task<VehicleInfo?> GetAllVehicles(int vehicleId)
@@ -39,7 +47,7 @@ namespace DealsOnWheelsAPI.Controllers
             }
         }
 
-        // POST: "api/Vehicles/GetAllManufacturers"
+        // GET: "api/Vehicles/GetAllManufacturers"
         [HttpGet]
         [Route("api/Vehicles/GetAllManufacturers")]
         public async Task<List<Manufacturer>> GetAllManufacturers()
@@ -47,18 +55,10 @@ namespace DealsOnWheelsAPI.Controllers
            return await _thisRepository.GetAllManufacturers();
         }
 
-        // POST: "api/Vehicles/GetAllModelsForManufacturer/{manufacturerId}"
-        [HttpGet]
-        [Route("api/Vehicles/GetAllModelsForManufacturer")]
-        public async Task<List<ManufacturerModelInfo>> GetAllModelsForManufacturer(int manufacturerId)
-        {
-            return await _thisRepository.GetAllModelsForManufacturer(manufacturerId);
-        }
-
-        // POST: "api/Vehicles/GetAllModels"
+        // GET: "api/Vehicles/GetAllModels"
         [HttpGet]
         [Route("api/Vehicles/GetAllModels")]
-        public async Task<List<ManufacturerModelInfo>> GetAllModels()
+        public async Task<List<Model>> GetAllModels()
         {
             return await _thisRepository.GetAllModels();
         }
