@@ -112,6 +112,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
         public async Task<int?> AddNewUser(NewUser newUser)
         {
             var valid = true;
+            var userID = 0;
 
             try
             {
@@ -125,6 +126,23 @@ namespace DealsOnWheelsAPI.Data.EfCore
                     {
                         _context.tb_UserCredentials.Add(user);
                         await _context.SaveChangesAsync();
+
+                        var searchUser = await _context.tb_UserCredentials
+                 .FirstOrDefaultAsync(m => m.EmailAddress == newUser.EmailAddress);
+
+                        if (searchUser == null)
+                        {
+                            valid = false;
+                        }
+                        else
+                        {
+                            userID = searchUser.UserId;
+
+                            if(userID < 1)
+                            {
+                                valid = false;
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -135,6 +153,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
                     if (valid)
                     {
                         UserPersonalDetails userPersonalDetails = new UserPersonalDetails();
+                        userPersonalDetails.UserId = userID;
                         userPersonalDetails.FirstName = newUser.FirstName;
                         userPersonalDetails.LastName = newUser.LastName;
                         userPersonalDetails.IDNumber = newUser.IDNumber;
@@ -154,6 +173,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
                     if (valid)
                     {
                         UserContactDetails userContactDetails = new UserContactDetails();
+                        userContactDetails.UserId = userID;
                         userContactDetails.PhoneNumber = newUser.PhoneNumber;
 
                         try
@@ -171,6 +191,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
                     if (valid)
                     {
                         UserPaymentDetails userPaymentDetails = new UserPaymentDetails();
+                        userPaymentDetails.UserId = userID;
                         userPaymentDetails.AccountNumber = newUser.AccountNumber;
 
                         try
@@ -187,6 +208,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
                     if (valid)
                     {
                         UserAddressDetails userAddressDetails = new UserAddressDetails();
+                        userAddressDetails.UserId = userID;
                         userAddressDetails.StreetAddress = newUser.StreetAddress;
                         userAddressDetails.City = newUser.City;
                         userAddressDetails.Country = newUser.Country;
@@ -213,12 +235,9 @@ namespace DealsOnWheelsAPI.Data.EfCore
                 {
                     await _context.SaveChangesAsync();
 
-                    var user = await _context.tb_UserCredentials
-                 .FirstOrDefaultAsync(m => m.EmailAddress == newUser.EmailAddress);
-
-                    if (user != null)
+                    if (userID > 0)
                     {
-                        return user.UserId;
+                        return userID;
                     }
                     else
                     {

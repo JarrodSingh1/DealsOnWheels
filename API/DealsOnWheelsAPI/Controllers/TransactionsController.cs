@@ -17,7 +17,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // GET: "api/Transactions/GetTransactions"
         [HttpGet]
-        [Route("api/Transactions/GetTransactions")]
+        [Route("/Transactions/GetTransactions")]
         public async Task<List<Transactions>> GetTransactions()
         {
             return await _thisRepository.GetTransactions();
@@ -25,7 +25,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // GET: "api/Transactions/GetTransactionsInfo"
         [HttpGet]
-        [Route("api/Transactions/GetTransactionsInfo")]
+        [Route("/Transactions/GetTransactionsInfo")]
         public async Task<List<TransactionInfo>> GetTransactionsInfo()
         {
             return await _thisRepository.GetTransactionsInfo();
@@ -33,7 +33,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // GET: "api/Transactions/GetAllAvaliableVehicles"
         [HttpGet]
-        [Route("api/Transactions/GetAllAvaliableVehicles")]
+        [Route("/Transactions/GetAllAvaliableVehicles")]
         public async Task<List<AvailableVehicles>> GetAllAvaliableVehicles()
         {
             return await _thisRepository.GetAllAvaliableVehicles();
@@ -41,7 +41,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // POST: "api/Transactions/AddNewTransaction"
         [HttpPost]
-        [Route("api/Transactions/AddNewTransaction")]
+        [Route("/Transactions/AddNewTransaction")]
         public async Task<VehicleTransaction?> AddNewTransaction(NewTransaction newTransaction)
         {
             return await _thisRepository.AddNewTransaction(newTransaction);

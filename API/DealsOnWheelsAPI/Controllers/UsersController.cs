@@ -16,7 +16,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // POST: api/Users/Login
         [HttpPost]
-        [Route("api/Users/Login")]
+        [Route("/Users/Login")]
         public async Task<ActionResult<User>> Login(User user)
         {
            var validLogin = await _thisRepository.Login(user);
@@ -32,7 +32,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // Get: api/Users/UserInfo/5
         [HttpGet]
-        [Route("api/Users/UserInfo/{userId}")]
+        [Route("/Users/UserInfo/{userId}")]
         public async Task<UserInfo?> UserInfo(int userId)
         {
             var userInfo = await _thisRepository.GetUserInfo(userId);
@@ -48,7 +48,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // Get: api/Users/GetAllUserInfo
         [HttpGet]
-        [Route("api/Users/GetAllUserInfo")]
+        [Route("/Users/GetAllUserInfo")]
         public async Task<List<UserInfo>> GetAllUserInfo()
         {
             return await _thisRepository.GetAllUserInfo();
@@ -57,7 +57,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // POST: api/Users/AddNewUser
         [HttpPost]
-        [Route("api/Users/AddNewUser")]
+        [Route("/Users/AddNewUser")]
         public async Task<UserInfo?> AddNewUser(NewUser newUser)
         {
            var userId = await _thisRepository.AddNewUser(newUser);

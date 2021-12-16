@@ -1,0 +1,12 @@
+
+$darkBG: #313131;
+$darkFG: #64FFDA;
+$lightBG: #E0E0E0;
+$lightFG: #00BFA5;
+
+mat-toolbar { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $darkBG; color: $darkFG; padding-bottom: 0.5%; padding-top: 0.2%}
+a{color: $darkFG; padding-left: 7%; padding-right: 7%; font-size: 80%;}
+a:hover {
+    transform: scale(1.15);
+    background-color: #525252;;
+  }

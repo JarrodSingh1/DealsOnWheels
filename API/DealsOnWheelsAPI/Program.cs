@@ -10,6 +10,8 @@ builder.Services.AddScoped<EfCoreUserRepository>();
 builder.Services.AddScoped<EfCoreVehicleRepository>();
 builder.Services.AddScoped<EfCoreTransactionRepository>();
 
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -18,6 +20,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors(corsPolicyBuilder =>
+   corsPolicyBuilder.WithOrigins("http://localhost:4200")
+  .AllowAnyMethod()
+  .AllowAnyHeader()
+);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -17,7 +17,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // GET: "api/Vehicles/GetAllVehicles"
         [HttpGet]
-        [Route("api/Vehicles/GetAllVehicles")]
+        [Route("/Vehicles/GetAllVehicles")]
         public async Task<List<VehicleSpecs>> GetAllVehicles()
         {
             return await _thisRepository.GetAllVehicles();
@@ -25,7 +25,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // GET: "api/Vehicles/GetAllVehicleInfo"
         [HttpGet]
-        [Route("api/Vehicles/GetAllVehicleInfo")]
+        [Route("/Vehicles/GetAllVehicleInfo")]
         public async Task<List<VehicleInfo>> GetAllVehicleInfo()
         {
             return await _thisRepository.GetAllVehicleInfo();
@@ -33,7 +33,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // GET: "api/Vehicles/GetVehicleInfo/5"
         [HttpGet]
-        [Route("api/Vehicles/GetVehicleInfo/{vehicleId}")]
+        [Route("/Vehicles/GetVehicleInfo/{vehicleId}")]
         public async Task<VehicleInfo?> GetVehicleInfo(int vehicleId)
         {
             var vehicleInfo = await _thisRepository.GetVehicleInfo(vehicleId);
@@ -47,9 +47,9 @@ namespace DealsOnWheelsAPI.Controllers
             }
         }
 
-        // GET: "api/Vehicles/GetAllManufacturers"
+        // GET: "/GetAllManufacturers"
         [HttpGet]
-        [Route("api/Vehicles/GetAllManufacturers")]
+        [Route("/Vehicles/GetAllManufacturers")]
         public async Task<List<Manufacturer>> GetAllManufacturers()
         {
            return await _thisRepository.GetAllManufacturers();
@@ -57,7 +57,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // GET: "api/Vehicles/GetAllVehicleBodyTypes"
         [HttpGet]
-        [Route("api/Vehicles/GetAllVehicleBodyTypes")]
+        [Route("/Vehicles/GetAllVehicleBodyTypes")]
         public async Task<List<VehicleBodyType>> GetAllVehicleBodyTypes()
         {
             return await _thisRepository.GetAllVehicleBodyTypes();
@@ -65,7 +65,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // GET: "api/Vehicles/GetAllModels"
         [HttpGet]
-        [Route("api/Vehicles/GetAllModels")]
+        [Route("/Vehicles/GetAllModels")]
         public async Task<List<Model>> GetAllModels()
         {
             return await _thisRepository.GetAllModels();
@@ -73,7 +73,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // POST: api/Vehicles/AddManufacturer
         [HttpPost]
-        [Route("api/Vehicles/AddManufacturer")]
+        [Route("/Vehicles/AddManufacturer")]
         public async Task<Manufacturer?> AddManufacturer(String name)
         {
             return await _thisRepository.AddManufacturer(name);
@@ -81,7 +81,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // POST: api/Vehicles/AddModel
         [HttpPost]
-        [Route("api/Vehicles/AddModel")]
+        [Route("/Vehicles/AddModel")]
         public async Task<Model?> AddModel(String name)
         {
             return await _thisRepository.AddModel(name);
@@ -89,7 +89,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // POST: api/Vehicles/AddBodyType
         [HttpPost]
-        [Route("api/Vehicles/AddBodyType")]
+        [Route("/Vehicles/AddBodyType")]
         public async Task<VehicleBodyType?> AddBodyType(String name)
         {
             return await _thisRepository.AddBodyType(name);
@@ -97,7 +97,7 @@ namespace DealsOnWheelsAPI.Controllers
 
         // POST: api/Vehicles/AddNewVehicle
         [HttpPost]
-        [Route("api/Users/AddNewVehicle")]
+        [Route("/Vehicles/AddNewVehicle")]
         public async Task<VehicleInfo?> AddNewVehicle(NewVehicle newVehicle)
         {
             var vehicleId = await _thisRepository.AddNewVehicle(newVehicle);
