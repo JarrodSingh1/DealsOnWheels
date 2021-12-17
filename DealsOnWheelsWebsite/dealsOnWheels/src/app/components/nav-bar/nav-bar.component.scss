@@ -1,27 +1,44 @@
-$darkBG: #313131;
+$darkBG: #424242;
 $darkFG: #64ffda;
 $lightBG: #e0e0e0;
 $lightFG: #00bfa5;
 
-mat-toolbar {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: $darkBG;
-  color: $darkFG;
+.navbar{
+  background: $darkBG;
+  height: 80px;
+  margin-top: -80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top:0;
+  z-index:10;
+
+  @media screen and (max-width: 960px) {
+    transition: 0.8s all ease;
+  }
 }
 
-a {
-  color: $darkFG;
-  padding-left: 7%;
-  padding-right: 7%;
-  font-size: 80%;
+.navbar-container{
+  display:flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  padding: 0 24px;
+  max-width: 1100px;
 }
 
-a:hover {
-  transform: scale(1.15);
-  background-color: #525252;
-}
+.nav-logo{
+  justify-self: flex-start;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 
-.linkItems {
-  padding-left: -170px;
+  :hover{
+    background-color: #5c5b5b;
+    border-radius: 5px;
+    transition: 0.8s all ease;
+  }
 }
