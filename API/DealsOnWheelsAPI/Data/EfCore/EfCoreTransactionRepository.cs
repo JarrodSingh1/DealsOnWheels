@@ -13,7 +13,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
         }
 
         public async Task<List<Transactions>> GetTransactions()
-        { 
+        {
             var returnList = new List<Transactions>();
             var transactionsList = await _context.tb_VehicleTransaction.ToListAsync();
 
@@ -78,7 +78,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
 
                 var vehicleBodyType = await _context.tb_VehicleBodyType
                 .FirstOrDefaultAsync(m => m.BodyTypeId == vehicleSpecs.BodyTypeId);
-    
+
                 var manufacturerId = vehicleManufacturer.ManufacturerId;
                 var manufacturer = await _context.tb_Manufacturer
                 .FirstOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
@@ -133,25 +133,36 @@ namespace DealsOnWheelsAPI.Data.EfCore
             if (newTransaction != null)
             {
                 bool valid = true;
+                int userId = 0;
                 var vehicle = await _context.tb_VehicleSpecs
                .FirstOrDefaultAsync(m => m.VehicleId == newTransaction.VehicleId);
                 var user = await _context.tb_UserCredentials
-               .FirstOrDefaultAsync(m => m.UserId == newTransaction.UserId);
+               .FirstOrDefaultAsync(m => m.EmailAddress == newTransaction.EmailAddress);
 
                 if (user != null && vehicle != null)
                 {
-                    VehicleTransaction vehicleTransaction = new VehicleTransaction();
-                    vehicleTransaction.VehicleId = newTransaction.VehicleId;
+                    userId = user.UserId;
 
-                    try
+                    if (userId < 1)
                     {
-                        _context.tb_VehicleTransaction.Add(vehicleTransaction);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine("Error adding new vehicleTransaction to tb_VehicleTransaction: " + ex.Message);
                         valid = false;
+                    }
+
+                    if (valid)
+                    {
+                        VehicleTransaction vehicleTransaction = new VehicleTransaction();
+                        vehicleTransaction.VehicleId = newTransaction.VehicleId;
+
+                        try
+                        {
+                            _context.tb_VehicleTransaction.Add(vehicleTransaction);
+                            await _context.SaveChangesAsync();
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine("Error adding new vehicleTransaction to tb_VehicleTransaction: " + ex.Message);
+                            valid = false;
+                        }
                     }
                 }
                 else
@@ -159,12 +170,12 @@ namespace DealsOnWheelsAPI.Data.EfCore
                     return null;
                 }
 
-                if(valid)
+                if (valid)
                 {
                     SoldVehicles soldVehicles = new SoldVehicles();
                     soldVehicles.VehicleId = newTransaction.VehicleId;
                     soldVehicles.DateSold = DateTime.Now;
-                    soldVehicles.UserId = newTransaction.UserId;
+                    soldVehicles.UserId = userId;
 
                     try
                     {
@@ -178,7 +189,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
                     }
                 }
 
-                if(valid)
+                if (valid)
                 {
                     var transaction = await _context.tb_VehicleTransaction
                .FirstOrDefaultAsync(m => m.VehicleId == newTransaction.VehicleId);

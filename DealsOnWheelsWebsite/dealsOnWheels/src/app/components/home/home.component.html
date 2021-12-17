@@ -1,0 +1,49 @@
+<div class = "filters">
+    <mat-form-field>
+        <mat-label>Sort</mat-label>
+            <mat-select
+                panelClass = "sort-select"
+                [(ngModel)] = "sort" 
+            >
+                <mat-option value="modelName">modelName</mat-option>
+                <mat-option value="additionalInfo">additionalInfo</mat-option>
+                <mat-option value="manufacturerName">manufacturerName</mat-option>
+                <mat-option value="year">year</mat-option>
+                <mat-option value="price">price</mat-option>
+                <mat-option value="fuelType">fuelType</mat-option>
+                <mat-option value="transmission">transmission</mat-option>
+                <mat-option value="displacement">displacement</mat-option>
+                <mat-option value="power">power</mat-option>
+                <mat-option value="torque">torque</mat-option>
+                <mat-option value="weight">weight</mat-option>
+                <mat-option value="bodyType">bodyType</mat-option>
+            </mat-select>
+    </mat-form-field>  
+</div>
+
+
+
+<div class="cars">
+    <ng-container *ngFor="let car of cars">
+        <mat-card class="car">
+            <img mat-card-image src = "../../../assets/images/cars/{{car.vehicleId}}.jpg"
+            alt = "carPicture"/>
+            <mat-card-footer>
+                <mat-card-content class="car-description">
+                    <ul class="car-description-list">
+                        <li>Model: {{car.modelName}} - {{car.additionalInfo}} </li>
+                        <li>Manufacturer: {{car.manufacturerName}} - {{car.year}}</li>
+                        <li>Price: R{{car.price}}</li>
+                        <li>Fuel Type: {{car.fuelType}}</li>
+                        <li>Transmission: {{car.transmission}}</li>
+                        <li>Displacement: {{car.displacement}} </li>
+                        <li>Power: {{car.power}}kW</li>
+                        <li>Torque: {{car.torque}}Nm</li>
+                        <li>BodyType {{car.bodyType}}</li>
+                    </ul>
+                    <br>
+                </mat-card-content>
+            </mat-card-footer>
+        </mat-card>
+    </ng-container>
+</div>

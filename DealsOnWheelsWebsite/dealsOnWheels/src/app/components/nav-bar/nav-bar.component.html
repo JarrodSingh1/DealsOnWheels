@@ -12,7 +12,7 @@
         <div class="navbar-links" [routerLink]="'/signup'" *ngIf="!isLoggedIn">Sign up</div>
        </div>
        <div class="navbar-item">
-        <div class="navbar-links" [routerLink]="'/login'" *ngIf="isLoggedIn">Log out</div>
+        <div (click) = "ClearCookies()" class="navbar-links" [routerLink]="'/home'" *ngIf="isLoggedIn">Log out</div>
        </div>
     </div>
   </div> 

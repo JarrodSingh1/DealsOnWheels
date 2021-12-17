@@ -9,6 +9,7 @@ namespace DealsOnWheelsAPI.Models
         public int VehicleId { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        [StringLength(255, MinimumLength = 5)]
+        public String EmailAddress { get; set; }
     }
 }
