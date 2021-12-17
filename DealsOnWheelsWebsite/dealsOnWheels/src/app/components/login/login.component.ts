@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
         this.cookieService.set( 'loggedInUser', 'true');
         this.cookieService.set( 'loggedInUserEmail', this.loginForm.value.emailAddress);
         window.location.reload();
+        this.router.navigate(['home']);
       }, err=>{
         alert("Invalid Credentials provided :(")
       });
