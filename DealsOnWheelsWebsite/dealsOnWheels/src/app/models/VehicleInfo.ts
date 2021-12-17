@@ -13,4 +13,4 @@ export interface VehicleInfo {
     weight: number,
     bodyType: string,
     additionalInfo: string,
-}
+} 

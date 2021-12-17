@@ -15,10 +15,11 @@ export class LoginComponent implements OnInit {
   private loggedInUserEmail: string;
 
   constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {
-    if(this.cookieService.get('loggedInUser') != null)
+    if(this.cookieService.get('loggedInUser') != '')
     {
       this.loggedInUser = this.cookieService.get('loggedInUser');
       this.loggedInUserEmail = this.cookieService.get('loggedInUserEmail');
+      this.router.navigate(['home']);
     }
     else
     {
@@ -45,7 +46,6 @@ export class LoginComponent implements OnInit {
         this.cookieService.set( 'loggedInUser', 'true');
         this.cookieService.set( 'loggedInUserEmail', this.loginForm.value.emailAddress);
         window.location.reload();
-        this.router.navigate(['home']);
       }, err=>{
         alert("Invalid Credentials provided :(")
       });

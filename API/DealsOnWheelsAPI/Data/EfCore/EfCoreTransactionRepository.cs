@@ -13,7 +13,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
         }
 
         public async Task<List<Transactions>> GetTransactions()
-        { 
+        {
             var returnList = new List<Transactions>();
             var transactionsList = await _context.tb_VehicleTransaction.ToListAsync();
 
@@ -78,7 +78,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
 
                 var vehicleBodyType = await _context.tb_VehicleBodyType
                 .FirstOrDefaultAsync(m => m.BodyTypeId == vehicleSpecs.BodyTypeId);
-    
+
                 var manufacturerId = vehicleManufacturer.ManufacturerId;
                 var manufacturer = await _context.tb_Manufacturer
                 .FirstOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
@@ -143,12 +143,12 @@ namespace DealsOnWheelsAPI.Data.EfCore
                 {
                     userId = user.UserId;
 
-                    if(userId < 1)
+                    if (userId < 1)
                     {
                         valid = false;
                     }
-                    
-                    if(valid)
+
+                    if (valid)
                     {
                         VehicleTransaction vehicleTransaction = new VehicleTransaction();
                         vehicleTransaction.VehicleId = newTransaction.VehicleId;
@@ -170,7 +170,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
                     return null;
                 }
 
-                if(valid)
+                if (valid)
                 {
                     SoldVehicles soldVehicles = new SoldVehicles();
                     soldVehicles.VehicleId = newTransaction.VehicleId;
@@ -189,7 +189,7 @@ namespace DealsOnWheelsAPI.Data.EfCore
                     }
                 }
 
-                if(valid)
+                if (valid)
                 {
                     var transaction = await _context.tb_VehicleTransaction
                .FirstOrDefaultAsync(m => m.VehicleId == newTransaction.VehicleId);

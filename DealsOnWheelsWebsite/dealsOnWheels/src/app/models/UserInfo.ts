@@ -11,4 +11,4 @@ export interface UserInfo {
     country: string,
     state: string,
     zipCode: string,
-}
+} 
