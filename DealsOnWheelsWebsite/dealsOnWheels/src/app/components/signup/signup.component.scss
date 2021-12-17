@@ -1,42 +1,52 @@
 $darkBG: #424242;
-$darkFG: #64FFDA;
-$lightBG: #E0E0E0;
-$lightFG: #00BFA5;
+$darkFG: #64ffda;
+$lightBG: #e0e0e0;
+$lightFG: #00bfa5;
 
 :host {
-    display: flex;
-    justify-content: center;
-    margin: 100px 0px;
-  }
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
 
-  .mat-form-field {
-    width: 100%;
-    min-width: 300px;
-  }
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
 
-  mat-card-title,
-  mat-card-content {
-    display: flex;
-    justify-content: center;
-  }
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
 
-  .error {
-    padding: 16px;
-    width: 300px;
-    color: white;
-    background-color: red;
-  }
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
 
-  .button {
-    display: flex;
-    justify-content: flex-end;
-  }
+.button {
+  display: flex;
+  justify-content: center;
+}
 
-mat-card{background-color: #5c5b5b; padding: 2%; width: 15%}
+mat-card {
+  background-color: #5c5b5b;
+  width: 20%;
+  padding: 0%;
+  height: 1050px;
+}
 
-input{color:$lightFG}
+input {
+  color: $lightFG;
+}
 
-mat-card-title{color:$lightFG; background-color: $darkBG;  display:flex;
+mat-card-title {
+  color: $lightFG;
+  background-color: $darkBG;
+  display: flex;
   top: 0;
   left: 0;
   width: 100%;
@@ -44,21 +54,27 @@ mat-card-title{color:$lightFG; background-color: $darkBG;  display:flex;
   padding-top: 7%;
 }
 
-button {color:$lightFG; background-color: $darkBG;}
+button {
+  color: $lightFG;
+  background-color: $darkBG;
+}
 
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
   color: $lightFG !important;
- }
-
- ::ng-deep.mat-form-field-underline {
-  /*change color of underline*/
-  background-color: $lightFG !important;
-} 
-
-::ng-deep.mat-form-field-ripple {
- /*change color of underline when focused*/
- background-color: $lightFG !important;;
 }
 
-.link{color: $lightBG;}
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: $lightFG !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: $lightFG !important;
+}
+
+.link {
+  color: $lightBG;
+  margin-left: 20%;
+}

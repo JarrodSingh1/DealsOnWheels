@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Input, Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,24 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  private loggedInUser: string;
+  private loggedInUserEmail: string;
+
+  constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {
+    if(this.cookieService.get('loggedInUser') != null)
+    {
+      this.loggedInUser = this.cookieService.get('loggedInUser');
+      this.loggedInUserEmail = this.cookieService.get('loggedInUserEmail');
+    }
+    else
+    {
+      this.loggedInUser = '';
+      this.loggedInUserEmail = '';
+    }
+   }
 
   ngOnInit(): void {
+    
   }
 
   loginForm: FormGroup = new FormGroup({
@@ -26,8 +42,9 @@ export class LoginComponent implements OnInit {
       this.http.post<any>("http://localhost:7152/Users/Login", this.loginForm.value)
       .subscribe(res=> {
         alert("Log in Successful :)");
-        this.loginForm.reset();
-        this.router.navigate(['login']);
+        this.cookieService.set( 'loggedInUser', 'true');
+        this.cookieService.set( 'loggedInUserEmail', this.loginForm.value.emailAddress);
+        window.location.reload();
       }, err=>{
         alert("Invalid Credentials provided :(")
       });

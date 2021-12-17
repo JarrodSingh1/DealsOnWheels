@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn: boolean = false;
+  loggedInUser: string = '';
 
-  ngOnInit(): void {
+  constructor(private cookieService: CookieService) {
+    if(this.cookieService.get('loggedInUser') != null)
+    {
+      if(this.cookieService.get('loggedInUser') === 'true')
+      {
+        this.isLoggedIn = true;
+      }
+      this.loggedInUser = this.cookieService.get('loggedInUserEmail');
+    }
+    else
+    {
+      this.isLoggedIn = false;
+      this.loggedInUser = '';
+    }
+   }
+
+  ngOnInit(): void 
+  {
+
   }
 
+  ClearCookies(): void
+  {
+    this.cookieService.set( 'loggedInUser', '');
+    this.cookieService.set( 'loggedInUserEmail', '');
+    window.location.reload();
+  }
 }

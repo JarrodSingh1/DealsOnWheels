@@ -24,13 +24,18 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 
+import { CookieService } from 'ngx-cookie-service';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from './components/home/home.component';  
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +54,10 @@ import { SignupComponent } from './components/signup/signup.component';
     MatButtonModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    CommonModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
   
 })

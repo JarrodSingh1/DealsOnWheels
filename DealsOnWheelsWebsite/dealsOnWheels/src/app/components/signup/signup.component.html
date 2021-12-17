@@ -1,7 +1,10 @@
 <mat-card>
     
     <mat-card-title>SignUp</mat-card-title>
-    <a  class = "link" routerLink="/login">Already have an account? Log in here>></a>
+    <br>
+    <a  class = "link" routerLink="/login">Already have an account? Log in here.</a>
+    <br>
+    <br>
 <mat-card-content>
 <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
   <p>
@@ -18,13 +21,13 @@
 
   <p>
     <mat-form-field>
-      <input type="text" matInput placeholder="First Name" formControlName="fName">
+      <input type="text" matInput placeholder="First Name" formControlName="firstName">
     </mat-form-field>
   </p>
 
   <p>
     <mat-form-field>
-      <input type="text" matInput placeholder="Last Name" formControlName="lName">
+      <input type="text" matInput placeholder="Last Name" formControlName="lastName">
     </mat-form-field>
   </p>
 

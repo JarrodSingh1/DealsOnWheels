@@ -1,13 +1,12 @@
 <mat-toolbar>
-    <mat-toolbar-row>
-      <a mat-button [routerLink]="'/home'"> <img src="../../../assets/images/logo/logo_green.png" alt="Kitten" height="80" width="140" /> </a>
-      <div>
-        <a mat-button [routerLink]="'/login'"> Log in </a>
-        <a mat-button [routerLink]="'/signup'"> Sign up </a>
-        <a mat-button [routerLink]="'/contacts'"> Contacts </a>
-        <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
-        <a mat-button [routerLink]="'/activities'"> Activities </a>
-        <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
-      </div>
-    </mat-toolbar-row>
+  <mat-toolbar-row>
+    
+      <a><img src="../../../assets/images/logo/logo_green.png" width="140" height="80" alt="kitten"/></a>
+    <div>
+      <a *ngIf="!isLoggedIn" mat-button [routerLink]="'/login'"> Log in </a>
+      <a *ngIf="!isLoggedIn" mat-button [routerLink]="'/signup'"> Sign up </a>
+      <a (click)="ClearCookies()" *ngIf="isLoggedIn" mat-button [routerLink]="'/login'"> Log Out </a>
+    </div>
+      
+  </mat-toolbar-row>
 </mat-toolbar>
