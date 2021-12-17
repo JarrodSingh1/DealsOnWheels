@@ -1,12 +1,19 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    
-      <a><img src="../../../assets/images/logo/logo_green.png" width="140" height="80" alt="kitten"/></a>
-    <div>
-      <a *ngIf="!isLoggedIn" mat-button [routerLink]="'/login'"> Log in </a>
-      <a *ngIf="!isLoggedIn" mat-button [routerLink]="'/signup'"> Sign up </a>
-      <a (click)="ClearCookies()" *ngIf="isLoggedIn" mat-button [routerLink]="'/login'"> Log Out </a>
+
+<div class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <img height="80px" alt="logo" src="../../../assets/images/logo/logo_green.png" [routerLink]="'/home'" />
     </div>
-      
-  </mat-toolbar-row>
-</mat-toolbar>
+    <div class="navbar-menu">
+      <div class="navbar-item">
+       <div class="navbar-links" [routerLink]="'/login'" *ngIf="!isLoggedIn">Log in</div>
+      </div>
+      <div class="navbar-item">
+        <div class="navbar-links" [routerLink]="'/signup'" *ngIf="!isLoggedIn">Sign up</div>
+       </div>
+       <div class="navbar-item">
+        <div class="navbar-links" [routerLink]="'/login'" *ngIf="isLoggedIn">Log out</div>
+       </div>
+    </div>
+  </div> 
+</div>
