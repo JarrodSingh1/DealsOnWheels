@@ -1,0 +1,88 @@
+$darkBG: #424242;
+$darkFG: #64ffda;
+$lightBG: #e0e0e0;
+$lightFG: #00bfa5;
+
+.filters {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding-left: 20px;
+}
+
+.transactions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1600px;
+  margin: 20px auto;
+}
+
+.transaction {
+  padding: 30px;
+  margin: 30px;
+  width: 300px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: $darkBG;
+  box-shadow: 4px 3px 8px 0px #02e9ca;
+  transition-duration: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 4px 3px 11px 6px #02e9ca;
+    transform: translateY(-3px);
+  }
+
+  &-thumb-container {
+    background-color: black;
+    position: relative;
+    height: 172px;
+    width: auto;
+    color: white;
+    text-align: center;
+  }
+
+  &-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 172px;
+  }
+
+  &-name {
+    color: white;
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    color: white;
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 1px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.transactionInfoContainer{
+  display: flex;
+}
+
+p{margin:1%; padding: 0}
+
+.green{
+  color: $lightFG;
+}

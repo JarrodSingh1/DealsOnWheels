@@ -10,6 +10,7 @@ export class NavBarComponent implements OnInit {
 
   isLoggedIn: boolean = false;
   loggedInUser: string = '';
+  isAdmin: boolean = false;
 
   constructor(private cookieService: CookieService) {
     if(this.cookieService.get('loggedInUser') != null)
@@ -19,10 +20,21 @@ export class NavBarComponent implements OnInit {
         this.isLoggedIn = true;
       }
       this.loggedInUser = this.cookieService.get('loggedInUserEmail');
+
+      if(this.loggedInUser.toUpperCase() === 'ADMIN@EMAIL.COM')
+      {
+        this.isAdmin = true;
+      }
+      else
+      {
+        this.isAdmin = false;
+      }
+
     }
     else
     {
       this.isLoggedIn = false;
+      this.isAdmin = false;
       this.loggedInUser = '';
     }
    }
@@ -36,6 +48,7 @@ export class NavBarComponent implements OnInit {
   {
     this.cookieService.set( 'loggedInUser', '');
     this.cookieService.set( 'loggedInUserEmail', '');
+    this.cookieService.set( 'isAdmin', '');
     window.location.reload();
   }
 }

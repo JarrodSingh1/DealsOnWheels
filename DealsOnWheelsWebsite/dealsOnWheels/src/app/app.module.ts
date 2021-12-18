@@ -29,6 +29,8 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';  
 import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
+import { ViewUsersComponent } from './components/view-users/view-users.component';
+import { ViewTransactionsComponent } from './components/view-transactions/view-transactions.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
     NavBarComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    ViewUsersComponent,
+    ViewTransactionsComponent
   ],
   imports: [
     BrowserModule,
