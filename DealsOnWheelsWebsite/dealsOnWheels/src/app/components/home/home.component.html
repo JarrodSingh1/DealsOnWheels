@@ -51,7 +51,7 @@
                         <li>
                             <div class = "carInfoContainer">
                                 <p>Price: </p>
-                                <p class = "green"> R{{car.price}}</p>   
+                                <p class = "green"> R {{car.price | number}}</p>   
                             </div>   
                         </li>
                         <li>
@@ -68,14 +68,8 @@
                         </li>
                         <li>
                             <div class = "carInfoContainer">
-                                <p>Model: </p>
-                                <p class = "green"> {{car.modelName}} - {{car.additionalInfo}}</p>   
-                            </div>   
-                        </li>
-                        <li>
-                            <div class = "carInfoContainer">
                                 <p>Displacement:  </p>
-                                <p class = "green"> {{car.displacement}} l</p>   
+                                <p class = "green"> {{car.displacement | number}}l</p>   
                             </div>   
                         </li>
                         <li>
