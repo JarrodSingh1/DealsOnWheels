@@ -37,15 +37,15 @@ $lightFG: #00bfa5;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 20px auto;
 }
 
 .car {
-  padding: 10px;
-  margin: 10px;
-  width: 280px;
-  height: 430px;
+  padding: 15px;
+  margin: 15px;
+  width: 320px;
+  height: auto;
   overflow: hidden;
   border-radius: 5px;
   background-color: $darkBG;
@@ -76,11 +76,6 @@ $lightFG: #00bfa5;
     height: 172px;
   }
 
-  &-description {
-    display: flex;
-    flex-direction: custom;
-    justify-content: flex-start;
-  }
 
   &-name {
     color: white;
@@ -105,4 +100,14 @@ $lightFG: #00bfa5;
     text-overflow: ellipsis;
     overflow: hidden;
   }
+}
+
+.carInfoContainer{
+  display: flex;
+}
+
+p{margin:1%; padding: 0}
+
+.green{
+  color: $lightFG;
 }

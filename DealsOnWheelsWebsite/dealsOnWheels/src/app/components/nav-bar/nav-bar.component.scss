@@ -14,7 +14,6 @@ $lightFG: #00bfa5;
   position: sticky;
   top:0;
   z-index:10;
-
 }
 
 .navbar-container{
@@ -32,11 +31,12 @@ $lightFG: #00bfa5;
   cursor: pointer;
   display: flex;
   align-items: center;
-
+  
   :hover{
-    background-color: #5c5b5b;
+    background-color: #5b5b5c;
     border-radius: 5px;
-    transition: 0.8s all ease;
+    transition: 0.3s all ease;
+    transform: scale(1.1);
   }
 }
 
@@ -50,20 +50,22 @@ $lightFG: #00bfa5;
 
 .navbar-item{
   height: 80px;
+  padding-left: 20px;
+  :hover{
+    background-color: #5b5b5c;
+    border-radius: 5px;
+    transition: 0.3s all ease;
+    transform: scale(1.1);
+  }
 }
 
 .navbar-links{
   color: $lightFG;
+  background-color: $darkBG;
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
-
-  :hover{
-    background-color: #5c5b5b;
-    border-radius: 5px;
-    transition: 0.8s all ease;
-  }
 }

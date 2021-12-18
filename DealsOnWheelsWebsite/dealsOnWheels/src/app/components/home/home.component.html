@@ -22,7 +22,6 @@
 </div>
 
 
-
 <div class="cars">
     <ng-container *ngFor="let car of cars">
         <mat-card class="car">
@@ -31,15 +30,72 @@
             <mat-card-footer>
                 <mat-card-content class="car-description">
                     <ul class="car-description-list">
-                        <li>Model: {{car.modelName}} - {{car.additionalInfo}} </li>
-                        <li>Manufacturer: {{car.manufacturerName}} - {{car.year}}</li>
-                        <li>Price: R{{car.price}}</li>
-                        <li>Fuel Type: {{car.fuelType}}</li>
-                        <li>Transmission: {{car.transmission}}</li>
-                        <li>Displacement: {{car.displacement}} </li>
-                        <li>Power: {{car.power}}kW</li>
-                        <li>Torque: {{car.torque}}Nm</li>
-                        <li>BodyType {{car.bodyType}}</li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Model: </p>
+                                <p class = "green"> {{car.modelName}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Manufacturer: </p>
+                                <p class = "green"> {{car.manufacturerName}} - {{car.year}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Additional Info: </p>
+                                <p class = "green"> {{car.additionalInfo}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Price: </p>
+                                <p class = "green"> R{{car.price}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Fuel Type: </p>
+                                <p class = "green"> {{car.fuelType}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Transmission:  </p>
+                                <p class = "green"> {{car.transmission}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Model: </p>
+                                <p class = "green"> {{car.modelName}} - {{car.additionalInfo}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Displacement:  </p>
+                                <p class = "green"> {{car.displacement}} l</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Power: </p>
+                                <p class = "green"> {{car.power}}kW</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Torque: </p>
+                                <p class = "green"> {{car.torque}}Nm</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>BodyType: </p>
+                                <p class = "green"> {{car.bodyType}}</p>   
+                            </div>   
+                        </li>
                     </ul>
                     <br>
                 </mat-card-content>
