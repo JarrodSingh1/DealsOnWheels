@@ -31,6 +31,9 @@ import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor'
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 import { ViewUsersComponent } from './components/view-users/view-users.component';
 import { ViewTransactionsComponent } from './components/view-transactions/view-transactions.component';
+import { ViewUserComponent } from './components/view-user/view-user.component';
+import { ViewVehicleComponent } from './components/view-vehicle/view-vehicle.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import { ViewTransactionsComponent } from './components/view-transactions/view-t
     SignupComponent,
     HomeComponent,
     ViewUsersComponent,
-    ViewTransactionsComponent
+    ViewTransactionsComponent,
+    ViewUserComponent,
+    ViewVehicleComponent,
+    RedirectComponent
   ],
   imports: [
     BrowserModule,

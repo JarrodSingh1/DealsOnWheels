@@ -1,0 +1,72 @@
+<div class="cars">
+        <mat-card class="car">
+            <img mat-card-image src = "../../../assets/images/cars/{{car.vehicleId}}.jpg"
+            alt = "carPicture"/>
+            <mat-card-footer>
+                <mat-card-content class="car-description">
+                    <ul class="car-description-list">
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Model: </p>
+                                <p class = "green"> {{car.modelName}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Manufacturer: </p>
+                                <p class = "green"> {{car.manufacturerName}} - {{car.year}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Additional Info: </p>
+                                <p class = "green"> {{car.additionalInfo}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Price: </p>
+                                <p class = "green"> R {{car.price | number}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Fuel Type: </p>
+                                <p class = "green"> {{car.fuelType}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Transmission:  </p>
+                                <p class = "green"> {{car.transmission}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Displacement:  </p>
+                                <p class = "green"> {{car.displacement | number}}l</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Power: </p>
+                                <p class = "green"> {{car.power}}kW</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>Torque: </p>
+                                <p class = "green"> {{car.torque}}Nm</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "carInfoContainer">
+                                <p>BodyType: </p>
+                                <p class = "green"> {{car.bodyType}}</p>   
+                            </div>   
+                        </li>
+                    </ul>
+                </mat-card-content>
+            </mat-card-footer>
+        </mat-card>
+</div>

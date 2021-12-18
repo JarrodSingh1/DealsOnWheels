@@ -13,7 +13,8 @@ namespace DealsOnWheelsAPI.Data.EfCore
         }
 
         public async Task<List<VehicleInfo>> GetAllVehicleInfo()
-        {
+        {;
+            List<SoldVehicles> soldVehicleList = await _context.tb_SoldVehicles.ToListAsync();
             List<VehicleInfo> returnList = new List<VehicleInfo>();
             List <VehicleSpecs> vehicleList = await _context.tb_VehicleSpecs.ToListAsync();
 
@@ -71,7 +72,15 @@ namespace DealsOnWheelsAPI.Data.EfCore
                 vInfo.ManufacturerName = manufacturerInfo.ManufacturerName;
                 vInfo.Transmission = searchVehicle.Transmission;
 
-                if(valid)
+                foreach (var soldVehicle in soldVehicleList)
+                {
+                    if(soldVehicle.VehicleId == searchVehicle.VehicleId)
+                    {
+                        valid = false;
+                    }
+                }
+
+                if (valid)
                 {
                     returnList.Add(vInfo);
                 }

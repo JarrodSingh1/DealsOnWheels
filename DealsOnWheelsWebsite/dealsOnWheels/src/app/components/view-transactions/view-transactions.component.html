@@ -21,19 +21,19 @@
                         <li>
                             <div class = "transactionInfoContainer">
                                 <p>Date Sold: </p>
-                                <p class = "green"> {{transaction.dateSold}}</p>   
+                                <p class = "green"> {{ transaction.dateSold | date:"dd/MM/yyyy" }}</p>   
                             </div>   
                         </li>
                         <li>
                             <div class = "transactionInfoContainer">
                                 <p>Date Added: </p>
-                                <p class = "green"> {{transaction.dateAdded}}</p>   
+                                <p class = "green"> {{ transaction.dateAdded | date:"dd/MM/yyyy" }}</p>   
                             </div>   
                         </li>
                         <li>
                             <div class = "transactionInfoContainer">
                                 <p>Price: </p>
-                                <p class = "green"> {{transaction.price}}</p>   
+                                <p class = "green"> R {{transaction.price | number}}</p>   
                             </div>   
                         </li>
                         <li>

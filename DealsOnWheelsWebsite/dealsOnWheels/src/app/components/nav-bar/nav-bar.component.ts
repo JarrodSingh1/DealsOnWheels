@@ -46,9 +46,7 @@ export class NavBarComponent implements OnInit {
 
   ClearCookies(): void
   {
-    this.cookieService.set( 'loggedInUser', '');
-    this.cookieService.set( 'loggedInUserEmail', '');
-    this.cookieService.set( 'isAdmin', '');
+    this.cookieService.deleteAll();
     window.location.reload();
   }
 }
