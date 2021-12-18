@@ -28,4 +28,8 @@ export class HomeComponent implements OnInit {
       console.log(this.cars);
     })
   }
+
+  BuyCar(car: VehicleInfo): void{
+    console.log("buysing vehicleId: " + car.vehicleId)
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 import { Transaction } from 'src/app/models/Transactions';
@@ -28,6 +28,14 @@ export class ViewTransactionsComponent implements OnInit {
       console.log(res);
       console.log(this.transactions);
     })
+  }
+
+  ViewUser(transaction: Transaction): void{
+    console.log("viewing userID: " + transaction.userId)
+  }
+
+  ViewVehicle(transaction: Transaction): void{
+    console.log("viewing vehicleID: " + transaction.vehicleId)
   }
 
 }

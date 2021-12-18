@@ -56,6 +56,7 @@ $lightFG: #00bfa5;
   &:hover {
     box-shadow: 4px 3px 11px 6px #02e9ca;
     transform: translateY(-3px);
+    transition: 0.3s all ease;
   }
 
   &-thumb-container {
@@ -110,4 +111,14 @@ p{margin:1%; padding: 0}
 
 .green{
   color: $lightFG;
+}
+
+.buttonContainer{
+  display: flex;
+}
+
+button{
+  margin-left: 256px; 
+  color: $lightFG;
+  background-color: #535353;
 }

@@ -43,7 +43,14 @@
                             </div>   
                         </li>
                     </ul>
-                    <br>
+                    <div class = "buttonContainer">
+                        <div class="button">
+                            <button (click)="ViewUser(transaction)" type="submit" mat-button>View User</button>
+                        </div>
+                         <div class="button">
+                            <button (click)="ViewVehicle(transaction)" type="submit"  mat-button>View Vehicle</button>
+                        </div>
+                    </div>
                 </mat-card-content>
             </mat-card-footer>
         </mat-card>
