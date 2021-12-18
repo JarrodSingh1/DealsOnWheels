@@ -1,0 +1,51 @@
+<div class="transactions">
+    <ng-container *ngFor="let transaction of transactions">
+        <mat-card class="transaction">
+            <img mat-card-image src = "../../../assets/images/logo/cashIcon.jpg"
+            alt = "transactionPicture"/>
+            <mat-card-footer>
+                <mat-card-content class="transaction-description">
+                    <ul class="transaction-description-list">
+                        <li>
+                            <div class = "transactionInfoContainer">
+                                <p>Transaction Id: </p>
+                                <p class = "green"> {{transaction.transactionId}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "transactionInfoContainer">
+                                <p>Vehicle Id: </p>
+                                <p class = "green"> {{transaction.vehicleId}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "transactionInfoContainer">
+                                <p>Date Sold: </p>
+                                <p class = "green"> {{transaction.dateSold}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "transactionInfoContainer">
+                                <p>Date Added: </p>
+                                <p class = "green"> {{transaction.dateAdded}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "transactionInfoContainer">
+                                <p>Price: </p>
+                                <p class = "green"> {{transaction.price}}</p>   
+                            </div>   
+                        </li>
+                        <li>
+                            <div class = "transactionInfoContainer">
+                                <p>User Id:  </p>
+                                <p class = "green"> {{transaction.userId}}</p>   
+                            </div>   
+                        </li>
+                    </ul>
+                    <br>
+                </mat-card-content>
+            </mat-card-footer>
+        </mat-card>
+    </ng-container>
+</div>

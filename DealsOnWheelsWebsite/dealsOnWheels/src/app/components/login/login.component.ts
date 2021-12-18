@@ -19,6 +19,15 @@ export class LoginComponent implements OnInit {
     {
       this.loggedInUser = this.cookieService.get('loggedInUser');
       this.loggedInUserEmail = this.cookieService.get('loggedInUserEmail');
+      if(this.loggedInUserEmail.toUpperCase() === 'ADMIN@EMAIL.COM')
+      {
+        this.cookieService.set( 'isAdmin', 'true');
+      }
+      else
+      {
+        this.cookieService.set( 'isAdmin', 'false');
+      }
+
       this.router.navigate(['home']);
     }
     else
@@ -45,6 +54,14 @@ export class LoginComponent implements OnInit {
         alert("Log in Successful :)");
         this.cookieService.set( 'loggedInUser', 'true');
         this.cookieService.set( 'loggedInUserEmail', this.loginForm.value.emailAddress);
+        if(this.loginForm.value.emailAddress.toUpperCase() === 'ADMIN@EMAIL.COM')
+        {
+          this.cookieService.set( 'isAdmin', 'true');
+        }
+        else
+        {
+          this.cookieService.set( 'isAdmin', 'false');
+        }
         window.location.reload();
       }, err=>{
         alert("Invalid Credentials provided :(")

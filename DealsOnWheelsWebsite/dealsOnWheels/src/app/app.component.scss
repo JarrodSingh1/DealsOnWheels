@@ -1,5 +1,10 @@
-body {
-  background-image: url("../assets/images/logo/blackBgImage.jpg"), linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.24));
-  background-blend-mode: overlay;
-  height: 130vh;
+body
+{
+  background-color: black;
+}
+
+
+.bg { 
+  background: url("../assets/images/logo/bg.jpg"); 
+  min-height: 130%;
 }

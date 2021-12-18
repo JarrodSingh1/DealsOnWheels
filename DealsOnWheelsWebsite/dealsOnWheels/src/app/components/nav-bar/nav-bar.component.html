@@ -6,13 +6,19 @@
     </div>
     <div class="navbar-menu">
       <div class="navbar-item">
-       <div class="navbar-links" [routerLink]="'/login'" *ngIf="!isLoggedIn">Log in</div>
-      </div>
-      <div class="navbar-item">
-        <div class="navbar-links" [routerLink]="'/signup'" *ngIf="!isLoggedIn">Sign up</div>
+        <button mat-button class="navbar-links" [routerLink]="'/viewUsers'" *ngIf="isAdmin && isLoggedIn">View All Users</button>
        </div>
        <div class="navbar-item">
-        <div (click) = "ClearCookies()" class="navbar-links" [routerLink]="'/home'" *ngIf="isLoggedIn">Log out</div>
+        <button mat-button class="navbar-links" [routerLink]="'/viewTransactions'" *ngIf="isAdmin && isLoggedIn">View All Transactions</button>
+       </div>
+      <div class="navbar-item">
+       <button mat-button class="navbar-links" [routerLink]="'/login'" *ngIf="!isLoggedIn">Log in</button>
+      </div>
+      <div class="navbar-item">
+        <button mat-button class="navbar-links" [routerLink]="'/signup'" *ngIf="!isLoggedIn && !isAdmin">Sign up</button>
+       </div>
+       <div class="navbar-item">
+        <button mat-button (click) = "ClearCookies()" class="navbar-links" [routerLink]="'/home'" *ngIf="isLoggedIn">Log out</button>
        </div>
     </div>
   </div> 
