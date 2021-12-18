@@ -1,29 +1,4 @@
-<div class = "filters">
-    <mat-form-field>
-        <mat-label>Sort</mat-label>
-            <mat-select
-                panelClass = "sort-select"
-                [(ngModel)] = "sort" 
-            >
-                <mat-option value="modelName">modelName</mat-option>
-                <mat-option value="additionalInfo">additionalInfo</mat-option>
-                <mat-option value="manufacturerName">manufacturerName</mat-option>
-                <mat-option value="year">year</mat-option>
-                <mat-option value="price">price</mat-option>
-                <mat-option value="fuelType">fuelType</mat-option>
-                <mat-option value="transmission">transmission</mat-option>
-                <mat-option value="displacement">displacement</mat-option>
-                <mat-option value="power">power</mat-option>
-                <mat-option value="torque">torque</mat-option>
-                <mat-option value="weight">weight</mat-option>
-                <mat-option value="bodyType">bodyType</mat-option>
-            </mat-select>
-    </mat-form-field>  
-</div>
-
-
 <div class="cars">
-    <ng-container *ngFor="let car of cars">
         <mat-card class="car">
             <img mat-card-image src = "../../../assets/images/cars/{{car.vehicleId}}.jpg"
             alt = "carPicture"/>
@@ -91,13 +66,7 @@
                             </div>   
                         </li>
                     </ul>
-                    <div class = "buttonContainer">
-                        <div class="button">
-                            <button (click)="BuyCar(car)" type="submit" mat-button>Buy Car</button>
-                        </div>
-                    </div>
                 </mat-card-content>
             </mat-card-footer>
         </mat-card>
-    </ng-container>
 </div>
