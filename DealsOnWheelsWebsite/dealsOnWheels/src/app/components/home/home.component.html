@@ -3,23 +3,64 @@
         <mat-label>Sort</mat-label>
             <mat-select
                 panelClass = "sort-select"
-                [(ngModel)] = "sort" 
+                [(ngModel)] = "sort"
+                (selectionChange)="SortCars(sort)"
             >
-                <mat-option value="modelName">modelName</mat-option>
-                <mat-option value="additionalInfo">additionalInfo</mat-option>
-                <mat-option value="manufacturerName">manufacturerName</mat-option>
-                <mat-option value="year">year</mat-option>
-                <mat-option value="price">price</mat-option>
-                <mat-option value="fuelType">fuelType</mat-option>
-                <mat-option value="transmission">transmission</mat-option>
-                <mat-option value="displacement">displacement</mat-option>
-                <mat-option value="power">power</mat-option>
-                <mat-option value="torque">torque</mat-option>
-                <mat-option value="weight">weight</mat-option>
-                <mat-option value="bodyType">bodyType</mat-option>
+                <mat-option value="modelName (Low to High)">Model Name (A to Z)</mat-option>
+                <mat-option value="modelName (High to Low)">Model Name (Z to A)</mat-option>
+                <mat-option value="manufacturerName (Low to High)">Manufacturer (A to Z)</mat-option>
+                <mat-option value="manufacturerName (High to Low)">Manufacturer (Z to A)</mat-option>
+                <mat-option value="year (Low to High)">Year (Low to High)</mat-option>
+                <mat-option value="year (High to Low)">Year (High to Low)</mat-option>
+                <mat-option value="price (Low to High)">Price (Low to High)</mat-option>
+                <mat-option value="price (High to Low)">Price (High to Low)</mat-option>
+                <mat-option value="fuelType (Low to High)">Fuel Type (A to Z)</mat-option>
+                <mat-option value="fuelType (High to Low)">Fuel Type (Z to A)</mat-option>
+                <mat-option value="transmission (Low to High)">Transmission (A to Z)</mat-option>
+                <mat-option value="transmission (High to Low)">Transmission (Z to A)</mat-option>
+                <mat-option value="displacement (Low to High)">Displacement (Low to High)</mat-option>
+                <mat-option value="displacement (High to Low)">Displacement (High to Low)</mat-option>
+                <mat-option value="power (Low to High)">Power (Low to High)</mat-option>
+                <mat-option value="power (High to Low)">Power (High to Low)</mat-option>
+                <mat-option value="torque (Low to High)">Torque (Low to High)</mat-option>
+                <mat-option value="torque (High to Low)">Torque (High to Low)</mat-option>
+                <mat-option value="weight (Low to High)">Weight (Low to High)</mat-option>
+                <mat-option value="weight (High to Low)">Weight (High to Low)</mat-option>
+                <mat-option value="bodyType (Low to High)">Body Type (A to Z)</mat-option>
+                <mat-option value="bodyType (High to Low)">Body Type (Z to A)</mat-option>
             </mat-select>
     </mat-form-field>  
+
+
+    <mat-form-field>
+        <mat-label>Sort By Manufacturer</mat-label>
+            <mat-select
+                panelClass = "sort-select"
+                [(ngModel)] = "sortByManufacturer"
+                (selectionChange)="SortByValues()"
+            >
+                <mat-option *ngFor= "let manufacturer of manufacturers" value = {{manufacturer.manufacturerName}}>{{manufacturer.manufacturerName}}</mat-option>
+                
+            </mat-select>
+    </mat-form-field>  
+
+    <mat-form-field>
+        <mat-label>Sort By Price</mat-label>
+            <mat-select
+                panelClass = "sort-select"
+                [(ngModel)] = "sortByPrice"
+                (selectionChange)="SortByValues()"
+            >
+                <mat-option value="0">Any</mat-option>
+                <mat-option value="1">Less than R 500,000</mat-option>
+                <mat-option value="2">R 500,000 to under R 1,000,000</mat-option>
+                <mat-option value="3">R 1,000,000 to under R 2,000,000</mat-option>
+                <mat-option value="4">R 2,000,000+</mat-option>
+            </mat-select>
+    </mat-form-field> 
 </div>
+
+
 
 
 <div class="cars">

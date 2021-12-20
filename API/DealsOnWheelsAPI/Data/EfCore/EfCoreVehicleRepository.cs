@@ -151,7 +151,9 @@ namespace DealsOnWheelsAPI.Data.EfCore
 
         public async Task<List<Manufacturer>> GetAllManufacturers()
         {
-            return await _context.tb_Manufacturer.ToListAsync();
+            var manufacturersList = await _context.tb_Manufacturer.ToListAsync();
+            manufacturersList.Add(new Manufacturer { ManufacturerId = 0, ManufacturerName = "Any" });
+            return manufacturersList;
         }
 
         public async Task<List<VehicleBodyType>> GetAllVehicleBodyTypes()

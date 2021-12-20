@@ -536,11 +536,11 @@ INSERT INTO tb_VehicleTransaction (VehicleID) Values (71);
 
 
 
-INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (3, GETDATE(), 1);
-INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (14, GETDATE(), 1);
-INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (54, GETDATE(), 1);
-INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (68, GETDATE(), 1);
-INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (71, GETDATE(), 1);
+INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (3, GETDATE(), 2);
+INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (14, GETDATE(), 2);
+INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (54, GETDATE(), 2);
+INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (68, GETDATE(), 2);
+INSERT INTO tb_SoldVehicles (VehicleID, DateSold, UserID) Values (71, GETDATE(), 2);
 
 
 

@@ -8,6 +8,7 @@ import { Transaction } from '../models/Transactions';
 import { NewTransaction } from '../models/NewTransaction';
 import { VehicleTransaction } from '../models/VehicleTransaction';
 import { ViewVehicleComponent } from '../components/view-vehicle/view-vehicle.component';
+import { Manufacturer } from '../models/Manufacturer';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ import { ViewVehicleComponent } from '../components/view-vehicle/view-vehicle.co
 export class HttpService {
 private cars: VehicleInfo[];
 private users: UserInfo[];
+private manufacturers: Manufacturer[];
 private user: UserInfo;
 private car: VehicleInfo;
 private transaction: NewTransaction;
@@ -26,6 +28,7 @@ private transactions: Transaction[];
   this.cars = [];
   this.users = [];
   this.transactions = [];
+  this.manufacturers = [];
   this.user  = {} as UserInfo;
   this.car  = {} as VehicleInfo;
   this.transaction  = {} as NewTransaction;
@@ -55,6 +58,11 @@ private transactions: Transaction[];
   getVehicleInfo(vehicleID: number): Observable<VehicleInfo>{
 
     return this.http.get<VehicleInfo>(`${env.BASE_URL}/vehicles/getvehicleinfo/`  + vehicleID).pipe(map(res=> this.car = res))
+  }
+
+  getAllManufacturers(): Observable<Manufacturer[]>{
+
+    return this.http.get<Manufacturer[]>(`${env.BASE_URL}/vehicles/GetAllManufacturers`).pipe(map(res=> this.manufacturers = res))
   }
 
   makeTransaction(transaction: NewTransaction): Observable<VehicleTransaction>{
