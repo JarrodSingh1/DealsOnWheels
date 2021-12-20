@@ -4,11 +4,15 @@ $lightBG: #e0e0e0;
 $lightFG: #00bfa5;
 
 .filters {
-  max-width: 200px;
+  max-width: 320px;
   margin: 100px auto;
   background-color: #707070;
-  padding-top: 20px;
   border-radius: 10px;
+  padding: 20px;
+}
+
+.matFormField{
+  width:300px;
 }
 
 ::ng-deep {
